@@ -62,7 +62,7 @@ def portfolio_kb() -> InlineKeyboardMarkup:
 async def cmd_start(message: Message, state: FSMContext) -> None:
     await state.clear()
     await message.answer(
-        "👋 <b>OK GER — Розробка сайтів та Telegram-ботів у Варшаві</b>\n\n"
+        "👋 <b>OK GER — Розробка сайтів та Telegram-ботів для бізнесу</b>\n\n"
         "Оберіть рішення, яке вас цікавить, щоб отримати точний прорахунок та терміни запуску:",
         reply_markup=portfolio_kb(),
     )
