@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="uk" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AutoPoint Service Warszawa — Автосервіс VAG, BMW, Toyota та комерційних авто | Demo OK GER</title>
+  <meta name="description" content="Сучасний автосервіс у Варшаві (ul. Wynalazek 1). Комп'ютерна діагностика, заміна масла, гальмівна система, відеозвіт із підйомника та Faktura VAT 23%." />
+  <meta name="robots" content="index, follow" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutoRepair",
+    "name": "AutoPoint Service Warszawa",
+    "address": { "@type": "PostalAddress", "streetAddress": "ul. Wynalazek 1", "addressLocality": "Warszawa", "addressCountry": "PL" },
+    "telephone": "+48726487711",
+    "openingHours": "Mo-Fr 08:00-18:00, Sa 09:00-14:00"
+  }
+  </script>
+</head>
+<body class="bg-stone-50 text-zinc-900 antialiased selection:bg-orange-600 selection:text-white">
+
+  <!-- Top Utility Bar -->
+  <div class="bg-zinc-950 text-zinc-400 text-xs py-2 px-4">
+    <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex flex-wrap items-center gap-4">
+        <span>📍 ul. Wynalazek 1, Warszawa (Mokotów / Służewiec)</span>
+        <span data-i18n="top_hours">🕒 Пн–Пт: 08:00–18:00 • Сб: 09:00–14:00</span>
+      </div>
+      <a href="index.html" data-i18n="back_link" class="text-zinc-300 hover:text-orange-400 transition">← Назад до портфоліо OK GER</a>
+    </div>
+  </div>
+
+  <!-- Main Header -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-stone-200">
+    <div class="max-w-6xl mx-auto px-4 py-3.5 flex items-center justify-between gap-4">
+      <a href="#" class="flex items-center gap-2.5 font-black text-xl tracking-tight text-zinc-900">
+        <span class="w-8 h-8 rounded-lg bg-orange-600 text-white flex items-center justify-center text-sm font-extrabold">AP</span>
+        <span>AUTO<span class="text-orange-600">POINT</span></span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-7 text-sm font-semibold text-zinc-600">
+        <a href="#catalog" data-i18n="nav_prices" class="hover:text-orange-600 transition">Послуги та прайс</a>
+        <a href="#video-report" data-i18n="nav_why" class="hover:text-orange-600 transition">Відеозвіт із підйомника</a>
+        <a href="#reviews" data-i18n="nav_rev" class="hover:text-orange-600 transition">Відгуки водіїв</a>
+        <a href="#faq" class="hover:text-orange-600 transition">FAQ</a>
+      </nav>
+
+      <div class="flex items-center gap-2.5">
+        <div class="flex items-center bg-stone-100 border border-stone-200 rounded-lg p-0.5 text-xs font-bold">
+          <button type="button" id="btn-ua" onclick="setLang('ua')" class="px-2.5 py-1 rounded-md bg-zinc-900 text-white transition">UA</button>
+          <button type="button" id="btn-pl" onclick="setLang('pl')" class="px-2.5 py-1 rounded-md text-zinc-600 hover:text-zinc-900 transition">PL</button>
+        </div>
+        <a href="#booking" data-i18n="nav_book"
+          class="bg-orange-600 hover:bg-orange-500 text-white text-xs sm:text-sm font-bold px-4 py-2 rounded-lg transition shadow-sm">
+          Запис на СТО
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section with Instant Service Selector -->
+    <section class="bg-zinc-900 text-white border-b border-zinc-800">
+      <div class="max-w-6xl mx-auto px-4 py-14 md:py-20 grid lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 bg-orange-600/15 border border-orange-500/30 text-orange-400 text-xs font-bold px-3 py-1.5 rounded-full">
+            <span data-i18n="hero_tag">Спеціалізація: VAG • BMW • Mercedes • Toyota • Буси до 3.5т</span>
+          </div>
+
+          <h1 data-i18n="hero_h1" class="text-3xl sm:text-5xl font-extrabold leading-[1.12] tracking-tight">
+            Автосервіс у Варшаві з відеозвітом кожного вузла перед ремонтом
+          </h1>
+
+          <p data-i18n="hero_p" class="text-zinc-300 text-base sm:text-lg leading-relaxed max-w-2xl">
+            Не міняємо справні деталі навмання. Знімаємо стан підвіски, гальм і течі на відео прямо з підйомника, погоджуємо точний кошторис у злотих і видаємо Faktura VAT 23%.
+          </p>
+
+          <div class="flex flex-wrap gap-3 pt-1">
+            <a href="#catalog" data-i18n="hero_btn1"
+              class="bg-orange-600 hover:bg-orange-500 text-white font-bold px-6 py-3.5 rounded-xl transition">
+              Переглянути прайс робіт
+            </a>
+            <a href="#video-report" data-i18n="hero_btn2"
+              class="bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 text-white font-semibold px-6 py-3.5 rounded-xl transition">
+              ▶ Як працює відеозвіт
+            </a>
+          </div>
+
+          <!-- Key Numbers -->
+          <div class="grid grid-cols-3 gap-4 pt-6 border-t border-zinc-800 max-w-lg">
+            <div>
+              <p class="text-2xl font-black text-white">4.9 ★</p>
+              <p data-i18n="st_1" class="text-xs text-zinc-400">Рейтинг у Google Maps</p>
+            </div>
+            <div>
+              <p data-i18n="st_2v" class="text-2xl font-black text-orange-500">4 бокси</p>
+              <p data-i18n="st_2" class="text-xs text-zinc-400">Запис на завтра без черг</p>
+            </div>
+            <div>
+              <p class="text-2xl font-black text-white">VAT 23%</p>
+              <p data-i18n="st_3" class="text-xs text-zinc-400">Фірмам, таксі та флотам</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Quick Booking Card -->
+        <div id="booking" class="lg:col-span-5 bg-white text-zinc-900 rounded-2xl p-6 sm:p-7 shadow-2xl border border-stone-200">
+          <h2 data-i18n="bk_h2" class="text-xl font-extrabold mb-1">Записатися на діагностику чи ТО</h2>
+          <p data-i18n="bk_p" class="text-xs text-zinc-500 mb-5">Майстер-приймальник підбере запчастини по VIN-коду за 10 хвилин</p>
+
+          <form id="stoForm" class="space-y-3.5">
+            <div>
+              <label data-i18n="bk_car_l" class="block text-xs font-bold text-zinc-700 mb-1">Марка, модель та рік авто</label>
+              <input id="carField" type="text" required placeholder="Напр. Audi A4 B9 2.0 TDI (2018)"
+                class="w-full bg-stone-50 border border-stone-300 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:border-orange-600" />
+            </div>
+
+            <div>
+              <label data-i18n="bk_srv_l" class="block text-xs font-bold text-zinc-700 mb-1">Що потрібно зробити?</label>
+              <select id="serviceSelect"
+                class="w-full bg-stone-50 border border-stone-300 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:border-orange-600">
+                <option value="ТО: Заміна масла + 4 фільтри (від 120 zł)" data-i18n="opt_1">ТО: Заміна масла + 4 фільтри (від 120 zł)</option>
+                <option value="Діагностика на підйомнику з відеозвітом + OBD (100 zł)" data-i18n="opt_2">Діагностика на підйомнику з відеозвітом + OBD (100 zł)</option>
+                <option value="Заміна гальмівних колодок / дисків (від 160 zł)" data-i18n="opt_3">Заміна гальмівних колодок / дисків (від 160 zł)</option>
+                <option value="Комплексний огляд авто перед купівлею (250 zł)" data-i18n="opt_4">Комплексний огляд авто перед купівлею (250 zł)</option>
+                <option value="Заправка кондиціонера R134a / R1234yf (від 150 zł)" data-i18n="opt_5">Заправка кондиціонера R134a / R1234yf (від 150 zł)</option>
+              </select>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2.5">
+              <div>
+                <label data-i18n="bk_day_l" class="block text-xs font-bold text-zinc-700 mb-1">Бажаний день</label>
+                <select id="daySelect" class="w-full bg-stone-50 border border-stone-300 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:border-orange-600">
+                  <option data-i18n="d_1">Завтра зранку</option>
+                  <option data-i18n="d_2">Найближчі 2–3 дні</option>
+                  <option data-i18n="d_3">У суботу</option>
+                </select>
+              </div>
+              <div>
+                <label data-i18n="bk_ph_l" class="block text-xs font-bold text-zinc-700 mb-1">Телефон</label>
+                <input id="stoPhone" type="tel" required placeholder="+48 500 000 000"
+                  class="w-full bg-stone-50 border border-stone-300 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:border-orange-600" />
+              </div>
+            </div>
+
+            <button type="submit" data-i18n="bk_btn"
+              class="w-full bg-orange-600 hover:bg-orange-500 text-white font-extrabold py-3 rounded-xl transition shadow-md shadow-orange-600/20">
+              Забронювати підйомник →
+            </button>
+
+            <div id="stoReceipt" class="hidden bg-emerald-50 border border-emerald-200 text-emerald-900 rounded-xl p-3 text-xs leading-relaxed"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Filterable Price Catalog -->
+    <section id="catalog" class="max-w-6xl mx-auto px-4 py-16">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+        <div>
+          <p data-i18n="cat_kicker" class="text-orange-600 text-xs font-extrabold uppercase tracking-wider mb-1">Прозора вартість робіт</p>
+          <h2 data-i18n="cat_h2" class="text-2xl sm:text-3xl font-extrabold text-zinc-900">Прайс-лист основних послуг</h2>
+        </div>
+
+        <!-- Category Filter Buttons -->
+        <div class="flex flex-wrap gap-2">
+          <button type="button" onclick="filterServices('all')" id="tab-all" data-i18n="tab_all"
+            class="px-3.5 py-2 rounded-xl text-xs font-bold bg-zinc-900 text-white transition">Усі роботи</button>
+          <button type="button" onclick="filterServices('to')" id="tab-to" data-i18n="tab_to"
+            class="px-3.5 py-2 rounded-xl text-xs font-bold bg-white border border-stone-200 text-zinc-700 hover:border-zinc-400 transition">ТО та Масла</button>
+          <button type="button" onclick="filterServices('diag')" id="tab-diag" data-i18n="tab_diag"
+            class="px-3.5 py-2 rounded-xl text-xs font-bold bg-white border border-stone-200 text-zinc-700 hover:border-zinc-400 transition">Діагностика</button>
+          <button type="button" onclick="filterServices('brake')" id="tab-brake" data-i18n="tab_brake"
+            class="px-3.5 py-2 rounded-xl text-xs font-bold bg-white border border-stone-200 text-zinc-700 hover:border-zinc-400 transition">Ходова та Гальма</button>
+        </div>
+      </div>
+
+      <div id="serviceList" class="grid md:grid-cols-2 gap-4"></div>
+    </section>
+
+    <!-- Lift Video Report Section (Interactive Demo & Workflow) -->
+    <section id="video-report" class="bg-white border-y border-stone-200 py-16 px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="max-w-2xl mb-10">
+          <p data-i18n="vr_kicker" class="text-orange-600 text-xs font-extrabold uppercase tracking-wider mb-1.5">Прозорий контроль ремонту</p>
+          <h2 data-i18n="vr_h2" class="text-2xl sm:text-3xl font-extrabold text-zinc-900 mb-3">Відеозвіт із підйомника перед початком робіт</h2>
+          <p data-i18n="vr_lead" class="text-sm sm:text-base text-zinc-600 leading-relaxed">
+            Майстер записує коротке відео проблемного вузла зі штангенциркулем та надсилає вам у Telegram або WhatsApp. Ви бачите реальний знос і самі вирішуєте, що міняємо зараз, а що ще поїздить.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-8 items-start">
+          <!-- Left: 3 Concrete Steps + Action Button -->
+          <div class="lg:col-span-5 space-y-4">
+            <div class="bg-stone-50 border border-stone-200 rounded-2xl p-5 flex gap-4">
+              <div class="w-9 h-9 rounded-xl bg-orange-600 text-white font-black text-sm flex items-center justify-center shrink-0">01</div>
+              <div>
+                <h3 data-i18n="vr_s1_t" class="font-bold text-zinc-900 text-base mb-1">Замір зносу прямо на підйомнику</h3>
+                <p data-i18n="vr_s1_d" class="text-xs sm:text-sm text-zinc-600 leading-relaxed">
+                  Фіксуємо на камеру товщину гальмівних дисків і колодок, люфти у важелях підвіски та сліди запотівання оливи без зайвих термінів.
+                </p>
+              </div>
+            </div>
+
+            <div class="bg-stone-50 border border-stone-200 rounded-2xl p-5 flex gap-4">
+              <div class="w-9 h-9 rounded-xl bg-orange-600 text-white font-black text-sm flex items-center justify-center shrink-0">02</div>
+              <div>
+                <h3 data-i18n="vr_s2_t" class="font-bold text-zinc-900 text-base mb-1">Ролик 45 сек + кошторис у месенджер</h3>
+                <p data-i18n="vr_s2_d" class="text-xs sm:text-sm text-zinc-600 leading-relaxed">
+                  Через 15 хвилин після заїзду в бокс ви отримуєте відео в Telegram/WhatsApp та 2 варіанти запчастин на вибір (TRW / Lemförder або Оригінал).
+                </p>
+              </div>
+            </div>
+
+            <div class="bg-stone-50 border border-stone-200 rounded-2xl p-5 flex gap-4">
+              <div class="w-9 h-9 rounded-xl bg-orange-600 text-white font-black text-sm flex items-center justify-center shrink-0">03</div>
+              <div>
+                <h3 data-i18n="vr_s3_t" class="font-bold text-zinc-900 text-base mb-1">Початок робіт лише після вашого «ОК»</h3>
+                <p data-i18n="vr_s3_d" class="text-xs sm:text-sm text-zinc-600 leading-relaxed">
+                  Без вашого підтвердження в чаті ми не беремося за заміну, а всі зняті старі запчастини кладемо у багажник для перевірки.
+                </p>
+              </div>
+            </div>
+
+            <div class="pt-2 flex flex-wrap items-center gap-3">
+              <button type="button" onclick="bookVideoInspection()" data-i18n="vr_cta_btn"
+                class="bg-zinc-900 hover:bg-zinc-800 text-white text-sm font-bold px-5 py-3 rounded-xl transition">
+                Записатися на огляд із відеозвітом →
+              </button>
+              <span data-i18n="vr_note" class="text-xs text-zinc-500">100 zł (або 0 zł при ремонті у нас)</span>
+            </div>
+          </div>
+
+          <!-- Right: Interactive Lift Video Report Preview Card -->
+          <div class="lg:col-span-7 bg-zinc-950 text-zinc-100 rounded-2xl border border-zinc-800 p-5 sm:p-6 shadow-xl">
+            <div class="flex flex-wrap items-center justify-between gap-2 pb-4 mb-4 border-b border-zinc-800">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse"></span>
+                <span data-i18n="vr_sim_label" class="text-xs font-bold uppercase tracking-wider text-zinc-300">Приклад реального звіту клієнту</span>
+              </div>
+              <!-- Case Switcher Buttons -->
+              <div class="flex flex-wrap gap-1.5">
+                <button type="button" id="case-btn-0" onclick="selectReportCase(0)" data-i18n="c_btn_0"
+                  class="px-2.5 py-1 rounded-lg text-xs font-bold bg-orange-600 text-white transition">🔴 Гальма (2.1 мм)</button>
+                <button type="button" id="case-btn-1" onclick="selectReportCase(1)" data-i18n="c_btn_1"
+                  class="px-2.5 py-1 rounded-lg text-xs font-bold bg-zinc-900 text-zinc-400 hover:text-white border border-zinc-800 transition">🟡 Ходова (Люфт)</button>
+                <button type="button" id="case-btn-2" onclick="selectReportCase(2)" data-i18n="c_btn_2"
+                  class="px-2.5 py-1 rounded-lg text-xs font-bold bg-zinc-900 text-zinc-400 hover:text-white border border-zinc-800 transition">🟢 Теча прокладки</button>
+              </div>
+            </div>
+
+            <!-- Simulated Lift Camera Screen -->
+            <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-4 sm:p-5 mb-4 relative overflow-hidden">
+              <div class="flex items-center justify-between text-[11px] font-mono text-zinc-400 mb-3">
+                <span id="camBoxTag">BOX #2 • ПІДЙОМНИК • 1080p</span>
+                <span id="camCarTag" class="text-orange-400 font-semibold">Audi A4 B9 2.0 TDI</span>
+              </div>
+
+              <div class="grid sm:grid-cols-12 gap-4 items-center">
+                <!-- Technical Measurement Gauge -->
+                <div class="sm:col-span-5 bg-zinc-950 border border-zinc-800 rounded-xl p-3.5 text-center space-y-2">
+                  <div id="gaugeStatusBadge" class="inline-block text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-red-500/15 text-red-400 border border-red-500/30">
+                    Критичний знос
+                  </div>
+                  <div id="gaugeMetric" class="text-2xl font-black text-white tabular-nums">2.1 мм</div>
+                  <div id="gaugeLimit" class="text-[11px] text-zinc-500">Мінімальний допуск: 3.0 мм</div>
+                  <div class="w-full bg-zinc-800 h-2 rounded-full overflow-hidden">
+                    <div id="gaugeBar" class="bg-red-500 h-full rounded-full transition-all duration-300" style="width: 24%;"></div>
+                  </div>
+                </div>
+
+                <!-- Mechanic Video Commentary -->
+                <div class="sm:col-span-7 space-y-2.5">
+                  <div class="flex items-center justify-between">
+                    <span data-i18n="mech_role" class="text-xs font-bold text-white">🎙 Коментар майстра (Відео 0:44):</span>
+                    <button type="button" onclick="togglePlayNote()" id="playSimBtn"
+                      class="text-[11px] font-bold bg-zinc-800 hover:bg-zinc-700 text-orange-400 px-2.5 py-1 rounded-md transition">
+                      ▶ Відтворити таймкод
+                    </button>
+                  </div>
+                  <p id="mechComment" class="text-xs sm:text-sm text-zinc-300 leading-relaxed bg-zinc-950/70 border border-zinc-800/80 rounded-xl p-3">
+                    «Внутрішня передня колодка стерта до 2.1 мм, на диску вже є виробітка 1.8 мм. Задні колодки ще мають 65% ресурсу — їх поки не чіпаємо.»
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interactive Quote & Approval Bar inside Report -->
+            <div class="bg-zinc-900/90 border border-zinc-800 rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <div data-i18n="vr_quote_lbl" class="text-[11px] uppercase tracking-wider text-zinc-400 font-semibold">Кошторис на погодження (деталі + робота):</div>
+                <div id="caseQuoteMain" class="text-base font-extrabold text-white mt-0.5">Комплект TRW: 540 zł + робота 160 zł = 700 zł</div>
+                <div id="caseQuoteAlt" class="text-xs text-zinc-400">Або Оригінал VAG OEM: 790 zł + 160 zł = 950 zł</div>
+              </div>
+
+              <div class="flex flex-wrap gap-2 shrink-0">
+                <button type="button" onclick="respondReport('approve')" data-i18n="vr_btn_ok"
+                  class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-3.5 py-2.5 rounded-lg transition">
+                  ✅ Погоджую ремонт
+                </button>
+                <button type="button" onclick="respondReport('later')" data-i18n="vr_btn_later"
+                  class="bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-xs font-semibold px-3 py-2.5 rounded-lg border border-zinc-700 transition">
+                  ⏳ На наступне ТО
+                </button>
+              </div>
+            </div>
+            <p id="reportReplyToast" class="hidden mt-3 text-xs text-emerald-400 bg-emerald-950/60 border border-emerald-500/30 rounded-lg px-3 py-2"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Driver Reviews -->
+    <section id="reviews" class="max-w-6xl mx-auto px-4 py-16">
+      <h2 data-i18n="rev_h2" class="text-2xl font-extrabold text-zinc-900 mb-6">Відгуки водіїв</h2>
+      <div class="grid md:grid-cols-3 gap-5">
+        <article class="bg-white border border-stone-200 rounded-2xl p-5 space-y-2.5 shadow-sm">
+          <div class="flex justify-between text-xs"><strong class="text-zinc-900">Дмитро Савченко</strong><span class="text-orange-500">★★★★★</span></div>
+          <p data-i18n="rv1" class="text-sm text-zinc-600 leading-relaxed">«Робив велике ТО на Passat B8 (масло в DSG, фільтри, передні диски). Скинули відео з підйомника, узгодили запчастини TRW, ввечері вже забрав машину.»</p>
+          <p class="text-[11px] text-zinc-400">VW Passat B8 • Google Maps</p>
+        </article>
+        <article class="bg-white border border-stone-200 rounded-2xl p-5 space-y-2.5 shadow-sm">
+          <div class="flex justify-between text-xs"><strong class="text-zinc-900">Michał Kowalski</strong><span class="text-orange-500">★★★★★</span></div>
+          <p data-i18n="rv2" class="text-sm text-zinc-600 leading-relaxed">«Sprawdzenie auta przed zakupem (BMW G20) wykonane bardzo rzetelnie — pomiar lakieru, pełny skan komputerowy i weryfikacja wycieków od spodu. Polecam każdemu.»</p>
+          <p class="text-[11px] text-zinc-400">BMW 320d G20 • Google Maps</p>
+        </article>
+        <article class="bg-white border border-stone-200 rounded-2xl p-5 space-y-2.5 shadow-sm">
+          <div class="flex justify-between text-xs"><strong class="text-zinc-900">Ігор Лисенко</strong><span class="text-orange-500">★★★★★</span></div>
+          <p data-i18n="rv3" class="text-sm text-zinc-600 leading-relaxed">«Обслуговую тут 3 робочі авто на фірму. Завжди вчасна Faktura VAT, адекватні ціни без нав'язування зайвих робіт і зручний заїзд на Służewiec.»</p>
+          <p class="text-[11px] text-zinc-400">Toyota Corolla Hybrid • Google Maps</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="max-w-3xl mx-auto px-4 pb-16">
+      <h2 data-i18n="faq_h2" class="text-2xl font-extrabold text-zinc-900 mb-6 text-center">Часті запитання</h2>
+      <div class="space-y-3">
+        <details class="bg-white border border-stone-200 rounded-xl p-4">
+          <summary data-i18n="q1" class="font-bold text-zinc-900 cursor-pointer">Чи можна приїхати зі своїми запчастинами та маслом?</summary>
+          <p data-i18n="a1" class="text-sm text-zinc-600 mt-2">Так, без проблем встановлюємо ваші запчастини. Повна гарантія на деталь і роботу діє при замовленні комплектуючих через наш склад.</p>
+        </details>
+        <details class="bg-white border border-stone-200 rounded-xl p-4">
+          <summary data-i18n="q2" class="font-bold text-zinc-900 cursor-pointer">Що входить у перевірку авто перед купівлею за 250 zł?</summary>
+          <p data-i18n="a2" class="text-sm text-zinc-600 mt-2">Вимірювання товщини лакофарбового покриття, комп'ютерна діагностика всіх блоків та реального пробігу, огляд ходової й двигуна на підйомнику та тест-драйв.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-zinc-950 text-zinc-400 py-10 px-4 border-t border-zinc-800">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
+      <div><strong class="text-white">AUTOPOINT SERVICE</strong> • ul. Wynalazek 1, 02-677 Warszawa • 📞 +48 726 487 711</div>
+      <div>Demo Website by <a href="index.html" class="text-orange-500 hover:underline">OK GER</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const SERVICES_DATA = [
+      { cat: "to",    ua_t: "Заміна масла та фільтрів (ТО)", ua_d: "Олива, масляний, повітряний та салонний фільтри + скидання сервісу", ua_p: "від 120 zł", pl_t: "Serwis olejowy + komplet filtrów", pl_d: "Wymiana oleju, filtrów oraz kasowanie inspekcji serwisowej", pl_p: "od 120 zł", time: "45 min" },
+      { cat: "diag",  ua_t: "Комп'ютерна діагностика OBD", ua_d: "Повне сканування блоків, параметри форсунок, DPF і турбіни", ua_p: "100 zł", pl_t: "Diagnostyka komputerowa OBD", pl_d: "Pełny skan sterowników, korekty wtrysków, DPF i turbo", pl_p: "100 zł", time: "30 min" },
+      { cat: "diag",  ua_t: "Огляд авто перед купівлею", ua_d: "Підйомник, товщиномір фарби, комп'ютер та тест-драйв", ua_p: "250 zł", pl_t: "Przegląd auta przed zakupem", pl_d: "Podnośnik, miernik lakieru, komputer i jazda próbna", pl_p: "250 zł", time: "60 min" },
+      { cat: "brake", ua_t: "Заміна гальмівних колодок і дисків", ua_d: "Передня або задня вісь із чисткою та змащенням напрямних", ua_p: "від 160 zł", pl_t: "Wymiana klocków i tarcz hamulcowych", pl_d: "Oś przednia lub tylna z czyszczeniem prowadnic zacisku", pl_p: "od 160 zł", time: "60 min" },
+      { cat: "brake", ua_t: "Діагностика та ремонт ходової", ua_d: "Важелі, сайлентблоки, амортизатори, ступичні підшипники", ua_p: "від 80 zł", pl_t: "Diagnostyka i naprawa zawieszenia", pl_d: "Wahacze, tuleje, amortyzatory, łożyska kół", pl_p: "od 80 zł", time: "45 min" },
+      { cat: "to",    ua_t: "Заправка та дезінфекція кондиціонера", ua_d: "Перевірка герметичності, заправка фреоном R134a + озонування", ua_p: "від 150 zł", pl_t: "Serwis i odgrzybianie klimatyzacji", pl_d: "Test szczelności, napełnienie czynnikiem R134a + ozonowanie", pl_p: "od 150 zł", time: "45 min" }
+    ];
+
+    const REPORT_CASES = [
+      {
+        box_ua: "BOX #2 • ПІДЙОМНИК • 1080p",
+        box_pl: "STANOWISKO #2 • PODNOŚNIK • 1080p",
+        car: "Audi A4 B9 2.0 TDI",
+        badge_ua: "Критичний знос",
+        badge_pl: "Krytyczne zużycie",
+        badge_cls: "inline-block text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-red-500/15 text-red-400 border border-red-500/30",
+        bar_cls: "bg-red-500 h-full rounded-full transition-all duration-300",
+        bar_w: "24%",
+        metric_ua: "2.1 мм",
+        metric_pl: "2.1 mm",
+        limit_ua: "Мінімальний допуск: 3.0 мм",
+        limit_pl: "Minimalna norma: 3.0 mm",
+        comment_ua: "«Внутрішня передня колодка стерта до 2.1 мм, на диску вже є виробітка 1.8 мм. Задні колодки ще мають 65% ресурсу — їх поки не чіпаємо.»",
+        comment_pl: "«Wewnętrzny przedni klocek ma już tylko 2.1 mm, a tarcza posiada rant 1.8 mm. Tylne klocki mają jeszcze 65% grubości — ich na razie nie ruszamy.»",
+        q_main_ua: "Комплект TRW: 540 zł + робота 160 zł = 700 zł",
+        q_main_pl: "Komplet TRW: 540 zł + robocizna 160 zł = 700 zł",
+        q_alt_ua: "Або Оригінал VAG OEM: 790 zł + 160 zł = 950 zł",
+        q_alt_pl: "Lub Oryginał VAG OEM: 790 zł + 160 zł = 950 zł"
+      },
+      {
+        box_ua: "BOX #1 • ПІДЙОМНИК • 1080p",
+        box_pl: "STANOWISKO #1 • PODNOŚNIK • 1080p",
+        car: "BMW 320d G20",
+        badge_ua: "Надірваний сайлентблок",
+        badge_pl: "Naderwana tuleja wahacza",
+        badge_cls: "inline-block text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-amber-500/15 text-amber-400 border border-amber-500/30",
+        bar_cls: "bg-amber-500 h-full rounded-full transition-all duration-300",
+        bar_w: "48%",
+        metric_ua: "Люфт 4.5 мм",
+        metric_pl: "Luz 4.5 mm",
+        limit_ua: "Гідроопора переднього важеля",
+        limit_pl: "Tuleja olejowa wahacza przedniego",
+        comment_ua: "«На відео видно витік гелю з правого гідросайлентблока — через це з'явився стукіт на бруківці. Лівий у нормі, але рекомендуємо міняти парою.»",
+        comment_pl: "«Na wideo widać wyciek oleju z prawej tulei wahacza — stąd stukanie na nierównościach. Lewa jest jeszcze szczelna, zalecamy wymianę parami.»",
+        q_main_ua: "Lemförder (пара): 360 zł + робота 180 zł = 540 zł",
+        q_main_pl: "Lemförder (para): 360 zł + robocizna 180 zł = 540 zł",
+        q_alt_ua: "Або Оригінал BMW: 520 zł + 180 zł = 700 zł",
+        q_alt_pl: "Lub Oryginał BMW: 520 zł + 180 zł = 700 zł"
+      },
+      {
+        box_ua: "BOX #4 • ПІДЙОМНИК • 1080p",
+        box_pl: "STANOWISKO #4 • PODNOŚNIK • 1080p",
+        car: "VW Passat B8 2.0 TDI",
+        badge_ua: "Початкове запотівання",
+        badge_pl: "Początkowe zapocenie",
+        badge_cls: "inline-block text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30",
+        bar_cls: "bg-emerald-500 h-full rounded-full transition-all duration-300",
+        bar_w: "82%",
+        metric_ua: "Рівень MAX",
+        metric_pl: "Poziom MAX",
+        limit_ua: "Прокладка клапанної кришки",
+        limit_pl: "Uszczelka pokrywy zaworów",
+        comment_ua: "«Знизу захист сухий, є лише легке запотівання по куту кришки. Терміново розбирати не потрібно — спокійно замінимо при наступному плановому ТО.»",
+        comment_pl: "«Osłona silnika od spodu jest sucha, widać jedynie lekkie zapocenie przy narożniku pokrywy. Nie trzeba robić na już — wymienimy przy kolejnym serwisie olejowym.»",
+        q_main_ua: "Elring + очистка: 140 zł + робота 190 zł = 330 zł",
+        q_main_pl: "Elring + mycie: 140 zł + robocizna 190 zł = 330 zł",
+        q_alt_ua: "Статус: Можна експлуатувати без обмежень",
+        q_alt_pl: "Status: Można bezpiecznie jeździć do kolejnego serwisu"
+      }
+    ];
+
+    const I18N = {
+      ua: {
+        title: "AutoPoint Service Warszawa — Автосервіс VAG, BMW, Toyota | Demo OK GER",
+        top_hours: "🕒 Пн–Пт: 08:00–18:00 • Сб: 09:00–14:00",
+        back_link: "← Назад до портфоліо OK GER",
+        nav_prices: "Послуги та прайс",
+        nav_why: "Відеозвіт із підйомника",
+        nav_rev: "Відгуки водіїв",
+        nav_book: "Запис на СТО",
+        hero_tag: "Спеціалізація: VAG • BMW • Mercedes • Toyota • Буси до 3.5т",
+        hero_h1: "Автосервіс у Варшаві з відеозвітом кожного вузла перед ремонтом",
+        hero_p: "Не міняємо справні деталі навмання. Знімаємо стан підвіски, гальм і течі на відео прямо з підйомника, погоджуємо точний кошторис у злотих і видаємо Faktura VAT 23%.",
+        hero_btn1: "Переглянути прайс робіт",
+        hero_btn2: "▶ Як працює відеозвіт",
+        st_1: "Рейтинг у Google Maps",
+        st_2v: "4 бокси",
+        st_2: "Запис на завтра без черг",
+        st_3: "Фірмам, таксі та флотам",
+        bk_h2: "Записатися на діагностику чи ТО",
+        bk_p: "Майстер-приймальник підбере запчастини по VIN-коду за 10 хвилин",
+        bk_car_l: "Марка, модель та рік авто",
+        ph_car: "Напр. Audi A4 B9 2.0 TDI (2018)",
+        bk_srv_l: "Що потрібно зробити?",
+        opt_1: "ТО: Заміна масла + 4 фільтри (від 120 zł)",
+        opt_2: "Діагностика на підйомнику з відеозвітом + OBD (100 zł)",
+        opt_3: "Заміна гальмівних колодок / дисків (від 160 zł)",
+        opt_4: "Комплексний огляд авто перед купівлею (250 zł)",
+        opt_5: "Заправка кондиціонера R134a / R1234yf (від 150 zł)",
+        bk_day_l: "Бажаний день",
+        d_1: "Завтра зранку",
+        d_2: "Найближчі 2–3 дні",
+        d_3: "У суботу",
+        bk_ph_l: "Телефон",
+        bk_btn: "Забронювати підйомник →",
+        cat_kicker: "Прозора вартість робіт",
+        cat_h2: "Прайс-лист основних послуг",
+        tab_all: "Усі роботи",
+        tab_to: "ТО та Масла",
+        tab_diag: "Діагностика",
+        tab_brake: "Ходова та Гальма",
+        book_row: "Обрати →",
+        vr_kicker: "Прозорий контроль ремонту",
+        vr_h2: "Відеозвіт із підйомника перед початком робіт",
+        vr_lead: "Майстер записує коротке відео проблемного вузла зі штангенциркулем та надсилає вам у Telegram або WhatsApp. Ви бачите реальний знос і самі вирішуєте, що міняємо зараз, а що ще поїздить.",
+        vr_s1_t: "Замір зносу прямо на підйомнику",
+        vr_s1_d: "Фіксуємо на камеру товщину гальмівних дисків і колодок, люфти у важелях підвіски та сліди запотівання оливи без зайвих термінів.",
+        vr_s2_t: "Ролик 45 сек + кошторис у месенджер",
+        vr_s2_d: "Через 15 хвилин після заїзду в бокс ви отримуєте відео в Telegram/WhatsApp та 2 варіанти запчастин на вибір (TRW / Lemförder або Оригінал).",
+        vr_s3_t: "Початок робіт лише після вашого «ОК»",
+        vr_s3_d: "Без вашого підтвердження в чаті ми не беремося за заміну, а всі зняті старі запчастини кладемо у багажник для перевірки.",
+        vr_cta_btn: "Записатися на огляд із відеозвітом →",
+        vr_note: "100 zł (або 0 zł при ремонті у нас)",
+        vr_sim_label: "Приклад реального звіту клієнту",
+        c_btn_0: "🔴 Гальма (2.1 мм)",
+        c_btn_1: "🟡 Ходова (Люфт)",
+        c_btn_2: "🟢 Теча прокладки",
+        mech_role: "🎙 Коментар майстра (Відео 0:44):",
+        play_btn: "▶ Відтворити таймкод",
+        play_btn_done: "✔ Таймкод 0:18 переглянуто",
+        vr_quote_lbl: "Кошторис на погодження (деталі + робота):",
+        vr_btn_ok: "✅ Погоджую ремонт",
+        vr_btn_later: "⏳ На наступне ТО",
+        toast_ok: "👍 Підтверджено! Майстер замовляє запчастини зі складу, авто буде готове сьогодні до 17:00.",
+        toast_later: "📝 Зафіксовано в сервісній картці авто. Нагадаємо вам перед наступним плановим ТО.",
+        rev_h2: "Відгуки водіїв",
+        rv1: "«Робив велике ТО на Passat B8 (масло в DSG, фільтри, передні диски). Скинули відео з підйомника, узгодили запчастини TRW, ввечері вже забрав машину.»",
+        rv2: "«Перевірка авто перед купівлею (BMW G20) виконана дуже сумлінно — товщиномір фарби, повний комп'ютерний скан та огляд знизу на підйомнику. Рекомендую кожному.»",
+        rv3: "«Обслуговую тут 3 робочі авто на фірму. Завжди вчасна Faktura VAT, адекватні ціни без нав'язування зайвих робіт і зручний заїзд на Służewiec.»",
+        faq_h2: "Часті запитання",
+        q1: "Чи можна приїхати зі своїми запчастинами та маслом?",
+        a1: "Так, без проблем встановлюємо ваші запчастини. Повна гарантія на деталь і роботу діє при замовленні комплектуючих через наш склад.",
+        q2: "Що входить у перевірку авто перед купівлею за 250 zł?",
+        a2: "Вимірювання товщини лакофарбового покриття, комп'ютерна діагностика всіх блоків та реального пробігу, огляд ходової й двигуна на підйомнику та тест-драйв.",
+        receipt_fmt: (car, day) => `✅ <b>Заявку прийнято!</b><br>Авто: <b>${car}</b> (${day}).<br>Майстер-приймальник зателефонує вам за 10 хвилин із підбором запчастин.`,
+        receipt_demo: "<br><br>📲 <i>Це демо: ваша заявка щойно прийшла власнику сайту в Telegram.</i>"
+      },
+      pl: {
+        title: "AutoPoint Service Warszawa — Warsztat VAG, BMW, Toyota | Demo OK GER",
+        top_hours: "🕒 Pon–Pt: 08:00–18:00 • Sob: 09:00–14:00",
+        back_link: "← Portfolio OK GER",
+        nav_prices: "Usługi i cennik",
+        nav_why: "Wideo z podnośnika",
+        nav_rev: "Opinie kierowców",
+        nav_book: "Umów wizytę",
+        hero_tag: "Specjalizacja: VAG • BMW • Mercedes • Toyota • Busy do 3.5t",
+        hero_h1: "Warsztat w Warszawie z raportem wideo przed każdą naprawą",
+        hero_p: "Nie wymieniamy sprawnych części w ciemno. Nagrywamy stan zawieszenia, hamulców i wycieków prosto z podnośnika, ustalamy kosztorys w PLN i wystawiamy Fakturę VAT 23%.",
+        hero_btn1: "Zobacz cennik usług",
+        hero_btn2: "▶ Jak działa raport wideo",
+        st_1: "Ocena w Google Maps",
+        st_2v: "4 stanowiska",
+        st_2: "Terminy na jutro bez kolejek",
+        st_3: "Dla firm, taxi i flot",
+        bk_h2: "Umów diagnostykę lub serwis",
+        bk_p: "Doradca dobierze części po numerze VIN w 10 minut",
+        bk_car_l: "Marka, model i rocznik auta",
+        ph_car: "Np. Audi A4 B9 2.0 TDI (2018)",
+        bk_srv_l: "Zakres prac",
+        opt_1: "Serwis olejowy + 4 filtry (od 120 zł)",
+        opt_2: "Diagnostyka na podnośniku z wideo + OBD (100 zł)",
+        opt_3: "Wymiana klocków / tarcz hamulcowych (od 160 zł)",
+        opt_4: "Przegląd auta przed zakupem (250 zł)",
+        opt_5: "Serwis klimatyzacji R134a / R1234yf (od 150 zł)",
+        bk_day_l: "Preferowany termin",
+        d_1: "Jutro rano",
+        d_2: "Najbliższe 2–3 dni",
+        d_3: "W sobotę",
+        bk_ph_l: "Telefon",
+        bk_btn: "Zarezerwuj podnośnik →",
+        cat_kicker: "Przejrzyste stawki robocizny",
+        cat_h2: "Cennik podstawowych usług",
+        tab_all: "Wszystkie usługi",
+        tab_to: "Olej i Filtry",
+        tab_diag: "Diagnostyka",
+        tab_brake: "Zawieszenie i Hamulce",
+        book_row: "Wybierz →",
+        vr_kicker: "Przejrzysta kontrola naprawy",
+        vr_h2: "Wideo z podnośnika przed rozpoczęciem prac",
+        vr_lead: "Mechanik nagrywa krótkie wideo zużytego elementu z suwmiarką i wysyła je na Telegram lub WhatsApp. Widzisz realny stan auta i sam decydujesz, co wymieniamy od razu.",
+        vr_s1_t: "Pomiar zużycia prosto na podnośniku",
+        vr_s1_d: "Rejestrujemy na kamerze grubość tarcz i klocków, luzy w zawieszeniu oraz ewentualne wycieki oleju bez zbędnego żargonu.",
+        vr_s2_t: "Film 45 sek. + kosztorys na komunikator",
+        vr_s2_d: "Po 15 minutach od wjazdu na stanowisko dostajesz wideo na WhatsApp/Telegram oraz 2 warianty części do wyboru (TRW / Lemförder lub Oryginał).",
+        vr_s3_t: "Start prac dopiero po Twoim «OK»",
+        vr_s3_d: "Bez Twojej akceptacji w wiadomości nie rozpoczynamy wymiany, a wszystkie zdemontowane części pakujemy do bagażnika.",
+        vr_cta_btn: "Umów przegląd z raportem wideo →",
+        vr_note: "100 zł (lub 0 zł przy naprawie u nas)",
+        vr_sim_label: "Przykład raportu wysyłanego klientowi",
+        c_btn_0: "🔴 Hamulce (2.1 mm)",
+        c_btn_1: "🟡 Zawieszenie (Luz)",
+        c_btn_2: "🟢 Wyciek uszczelki",
+        mech_role: "🎙 Komentarz mechanika (Wideo 0:44):",
+        play_btn: "▶ Odtwórz fragment",
+        play_btn_done: "✔ Fragment 0:18 odtworzony",
+        vr_quote_lbl: "Kosztorys do akceptacji (części + robocizna):",
+        vr_btn_ok: "✅ Akceptuję naprawę",
+        vr_btn_later: "⏳ Przy kolejnym serwisie",
+        toast_ok: "👍 Zaakceptowano! Mechanik zamawia części z hurtowni, auto będzie gotowe dziś do 17:00.",
+        toast_later: "📝 Zapisano w historii serwisowej auta. Przypomnimy przy kolejnej wymianie oleju.",
+        rev_h2: "Opinie kierowców",
+        rv1: "«Robiłem duży serwis w Passat B8 (olej w DSG, filtry, przednie tarcze). Wysłali wideo z podnośnika, dobrali części TRW, wieczorem auto było gotowe.»",
+        rv2: "«Sprawdzenie auta przed zakupem (BMW G20) wykonane bardzo rzetelnie — pomiar lakieru, pełny skan komputerowy i weryfikacja wycieków od spodu. Polecam każdemu.»",
+        rv3: "«Serwisuję tu 3 auta firmowe. Zawsze terminowa Faktura VAT, uczciwe ceny bez naciągania na zbędne wymiany i wygodny dojazd na Służewiec.»",
+        faq_h2: "Często zadawane pytania",
+        q1: "Czy mogę przyjechać z własnymi częściami i olejem?",
+        a1: "Tak, montujemy również części dostarczone przez klienta. Pełna gwarancja na część i usługę obowiązuje przy zamówieniu podzespołów przez nasz magazyn.",
+        q2: "Co obejmuje przegląd auta przed zakupem za 250 zł?",
+        a2: "Pomiar grubości lakieru, diagnostykę komputerową wszystkich sterowników oraz przebiegu, kontrolę zawieszenia i silnika na podnośniku oraz jazdę próbną.",
+        receipt_fmt: (car, day) => `✅ <b>Zgłoszenie przyjęte!</b><br>Samochód: <b>${car}</b> (${day}).<br>Doradca serwisowy oddzwoni w 10 minut z wyceną części.`,
+        receipt_demo: "<br><br>📲 <i>To demo: Twoje zgłoszenie właśnie trafiło do właściciela strony na Telegram.</i>"
+      }
+    };
+
+    let lang = "ua";
+    let activeCat = "all";
+    let activeCase = 0;
+
+    function renderServices() {
+      const box = document.getElementById("serviceList");
+      box.innerHTML = "";
+      SERVICES_DATA.filter(s => activeCat === "all" || s.cat === activeCat).forEach(s => {
+        const title = lang === "ua" ? s.ua_t : s.pl_t;
+        const desc  = lang === "ua" ? s.ua_d : s.pl_d;
+        const price = lang === "ua" ? s.ua_p : s.pl_p;
+        const card = document.createElement("div");
+        card.className = "bg-white border border-stone-200 hover:border-orange-400 rounded-2xl p-5 flex items-center justify-between gap-4 transition shadow-sm";
+        card.innerHTML = `
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <h3 class="font-bold text-zinc-900 text-sm sm:text-base">${title}</h3>
+              <span class="text-[11px] bg-stone-100 text-zinc-500 px-2 py-0.5 rounded font-medium">${s.time}</span>
+            </div>
+            <p class="text-xs text-zinc-500">${desc}</p>
+          </div>
+          <div class="text-right shrink-0">
+            <div class="font-black text-orange-600 text-base mb-1">${price}</div>
+            <button type="button" onclick="pickServiceRow('${title} (${price})')" class="text-xs font-bold text-zinc-800 hover:text-orange-600 transition">
+              ${I18N[lang].book_row}
+            </button>
+          </div>
+        `;
+        box.appendChild(card);
+      });
+    }
+
+    function filterServices(cat) {
+      activeCat = cat;
+      ["all", "to", "diag", "brake"].forEach(c => {
+        document.getElementById(`tab-${c}`).className = c === cat
+          ? "px-3.5 py-2 rounded-xl text-xs font-bold bg-zinc-900 text-white transition"
+          : "px-3.5 py-2 rounded-xl text-xs font-bold bg-white border border-stone-200 text-zinc-700 hover:border-zinc-400 transition";
+      });
+      renderServices();
+    }
+
+    function selectReportCase(idx) {
+      activeCase = idx;
+      const c = REPORT_CASES[idx];
+      document.getElementById("camBoxTag").textContent = lang === "ua" ? c.box_ua : c.box_pl;
+      document.getElementById("camCarTag").textContent = c.car;
+      const badge = document.getElementById("gaugeStatusBadge");
+      badge.className = c.badge_cls;
+      badge.textContent = lang === "ua" ? c.badge_ua : c.badge_pl;
+      document.getElementById("gaugeMetric").textContent = lang === "ua" ? c.metric_ua : c.metric_pl;
+      document.getElementById("gaugeLimit").textContent = lang === "ua" ? c.limit_ua : c.limit_pl;
+      const bar = document.getElementById("gaugeBar");
+      bar.className = c.bar_cls;
+      bar.style.width = c.bar_w;
+      document.getElementById("mechComment").textContent = lang === "ua" ? c.comment_ua : c.comment_pl;
+      document.getElementById("caseQuoteMain").textContent = lang === "ua" ? c.q_main_ua : c.q_main_pl;
+      document.getElementById("caseQuoteAlt").textContent = lang === "ua" ? c.q_alt_ua : c.q_alt_pl;
+      document.getElementById("playSimBtn").textContent = I18N[lang].play_btn;
+      document.getElementById("reportReplyToast").classList.add("hidden");
+
+      [0, 1, 2].forEach(i => {
+        document.getElementById(`case-btn-${i}`).className = i === idx
+          ? "px-2.5 py-1 rounded-lg text-xs font-bold bg-orange-600 text-white transition"
+          : "px-2.5 py-1 rounded-lg text-xs font-bold bg-zinc-900 text-zinc-400 hover:text-white border border-zinc-800 transition";
+      });
+    }
+
+    function togglePlayNote() {
+      const btn = document.getElementById("playSimBtn");
+      btn.textContent = I18N[lang].play_btn_done;
+    }
+
+    function respondReport(type) {
+      const toast = document.getElementById("reportReplyToast");
+      toast.textContent = type === "approve" ? I18N[lang].toast_ok : I18N[lang].toast_later;
+      toast.classList.remove("hidden");
+    }
+
+    function bookVideoInspection() {
+      const sel = document.getElementById("serviceSelect");
+      sel.selectedIndex = 1;
+      document.getElementById("booking").scrollIntoView({ behavior: "smooth" });
+      document.getElementById("carField").focus();
+    }
+
+    function pickServiceRow(label) {
+      const sel = document.getElementById("serviceSelect");
+      const opt = document.createElement("option");
+      opt.value = label;
+      opt.textContent = label;
+      sel.insertBefore(opt, sel.firstChild);
+      sel.value = label;
+      document.getElementById("booking").scrollIntoView({ behavior: "smooth" });
+      document.getElementById("carField").focus();
+    }
+
+    function setLang(newLang) {
+      lang = newLang;
+      document.documentElement.lang = newLang === "ua" ? "uk" : "pl";
+      document.title = I18N[newLang].title;
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (I18N[newLang][key]) el.textContent = I18N[newLang][key];
+      });
+      document.getElementById("carField").placeholder = I18N[newLang].ph_car;
+      document.getElementById("btn-ua").className = newLang === "ua"
+        ? "px-2.5 py-1 rounded-md bg-zinc-900 text-white transition"
+        : "px-2.5 py-1 rounded-md text-zinc-600 hover:text-zinc-900 transition";
+      document.getElementById("btn-pl").className = newLang === "pl"
+        ? "px-2.5 py-1 rounded-md bg-zinc-900 text-white transition"
+        : "px-2.5 py-1 rounded-md text-zinc-600 hover:text-zinc-900 transition";
+      renderServices();
+      selectReportCase(activeCase);
+    }
+
+
+    // Надсилає заявку з форми в Telegram власника (через /api/lead на сервері портфоліо)
+    function sendLead(payload) {
+      return fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      }).then(r => r.ok).catch(() => false);
+    }
+
+    function escapeHtml(t) {
+      return String(t).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+    }
+
+    document.getElementById("stoForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const btn = e.target.querySelector("button[type=submit]");
+      btn.disabled = true;
+      const car = document.getElementById("carField").value.trim();
+      const day = document.getElementById("daySelect").value;
+      const sent = await sendLead({
+        source: "Демо-сайт AutoPoint (СТО)",
+        service: document.getElementById("serviceSelect").value,
+        name: "Водій із сайту",
+        phone: document.getElementById("stoPhone").value.trim(),
+        extra: `${car} • ${day} • мова: ${lang.toUpperCase()}`
+      });
+      btn.disabled = false;
+      const box = document.getElementById("stoReceipt");
+      box.innerHTML = I18N[lang].receipt_fmt(escapeHtml(car), escapeHtml(day)) + (sent ? I18N[lang].receipt_demo : "");
+      box.classList.remove("hidden");
+      e.target.reset();
+    });
+
+    renderServices();
+    selectReportCase(0);
+  </script>
+</body>
+</html>

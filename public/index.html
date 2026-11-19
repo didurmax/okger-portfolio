@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="uk" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OK GER — Сайти під ключ та Telegram-боти для бізнесу</title>
+  <meta name="description" content="Розробка лендінгів, сайтів під ключ та Telegram-ботів для автоматизації заявок і запису клієнтів у Варшаві та віддалено. Прозора ціна, швидкий запуск за 2–4 дні." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="OK GER — Сайти під ключ та Telegram-боти" />
+  <meta property="og:description" content="Лендінги від 600 zł, сайти під ключ від 850 zł, Telegram-боти від 500 zł. Подивіться інтерактивні демо." />
+  <meta property="og:type" content="website" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "OK GER",
+    "description": "Розробка сайтів під ключ, лендінгів та Telegram-ботів для автоматизації бізнесу.",
+    "areaServed": "Warszawa, Polska",
+    "priceRange": "500 PLN - 2200 PLN"
+  }
+  </script>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-blue-500 selection:text-white">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 border-b border-slate-800/80 bg-slate-950/90 backdrop-blur">
+    <div class="max-w-6xl mx-auto px-4 py-3.5 flex items-center justify-between gap-4">
+      <a href="#" class="flex items-center gap-2.5 font-bold text-lg tracking-wider text-white">
+        <span class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-xs font-extrabold tracking-normal">OG</span>
+        <span id="brandName">OK GER</span>
+      </a>
+
+      <nav aria-label="Головна навігація" class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-300">
+        <a href="#demos" data-i18n="nav_demos" class="hover:text-white transition">Демо-проєкти</a>
+        <a href="#pricing" data-i18n="nav_pricing" class="hover:text-white transition">Послуги та ціни</a>
+        <a href="#process" data-i18n="nav_process" class="hover:text-white transition">Етапи роботи</a>
+        <a href="#contact" data-i18n="nav_contact" class="hover:text-white transition">Контакти</a>
+      </nav>
+
+      <div class="flex items-center gap-2.5">
+        <div class="flex items-center bg-slate-900 border border-slate-800 rounded-lg p-0.5 text-xs font-semibold">
+          <button type="button" id="btn-ua" onclick="setLang('ua')" class="px-2.5 py-1 rounded-md bg-blue-600 text-white transition">UA</button>
+          <button type="button" id="btn-pl" onclick="setLang('pl')" class="px-2.5 py-1 rounded-md text-slate-400 hover:text-white transition">PL</button>
+        </div>
+
+        <a id="headerTgBtn" href="https://t.me/exwtk" target="_blank" rel="noopener"
+          class="bg-blue-600 hover:bg-blue-500 text-white text-xs sm:text-sm font-semibold px-3.5 py-2 rounded-lg transition flex items-center gap-1.5">
+          <span>Telegram</span>
+          <span>↗</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="max-w-6xl mx-auto px-4 pt-14 pb-16 md:pt-20 md:pb-24">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold px-3 py-1.5 rounded-full mb-6">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span data-i18n="hero_badge">Приймаю замовлення • Варшава та віддалено</span>
+        </div>
+
+        <h1 data-i18n="hero_title" class="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-[1.12] mb-5">
+          Сайти під ключ та Telegram-боти, які приносять заявки бізнесу
+        </h1>
+
+        <p data-i18n="hero_subtitle" class="text-slate-400 text-base sm:text-lg md:text-xl leading-relaxed mb-8">
+          Допомагаю локальному бізнесу у Варшаві (салонам, СТО, сервісам ремонту та майстрам) автоматизувати запис і перестати втрачати клієнтів у діректі. Швидкий запуск без агентських переплат.
+        </p>
+
+        <div class="flex flex-wrap gap-3.5 mb-10">
+          <a id="heroTgBtn" href="https://t.me/exwtk" target="_blank" rel="noopener"
+            class="bg-blue-600 hover:bg-blue-500 text-white font-semibold px-6 py-3.5 rounded-xl transition shadow-lg shadow-blue-600/20">
+            <span data-i18n="hero_cta_primary">Написати в Telegram →</span>
+          </a>
+          <a href="#demos"
+            class="bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 font-semibold px-6 py-3.5 rounded-xl transition">
+            <span data-i18n="hero_cta_secondary">Подивитися живі демо</span>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-800/80 max-w-xl">
+          <div>
+            <p data-i18n="stat_1_val" class="text-white font-bold text-base sm:text-lg">2–4 дні</p>
+            <p data-i18n="stat_1_lbl" class="text-xs sm:text-sm text-slate-400">Термін запуску</p>
+          </div>
+          <div>
+            <p data-i18n="stat_2_val" class="text-white font-bold text-base sm:text-lg">Прозора ціна</p>
+            <p data-i18n="stat_2_lbl" class="text-xs sm:text-sm text-slate-400">Фіксуємо до старту</p>
+          </div>
+          <div>
+            <p data-i18n="stat_3_val" class="text-white font-bold text-base sm:text-lg">100% доступів</p>
+            <p data-i18n="stat_3_lbl" class="text-xs sm:text-sm text-slate-400">Передача коду та акаунтів</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Demos Section (5 interactive prototypes) -->
+    <section id="demos" class="max-w-6xl mx-auto px-4 py-16 border-t border-slate-800/80">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+        <div>
+          <p data-i18n="demos_kicker" class="text-blue-400 text-xs font-bold uppercase tracking-wider mb-2">Інтерактивне портфоліо</p>
+          <h2 data-i18n="demos_title" class="text-2xl sm:text-3xl font-bold text-white">2 сайти + 3 Telegram-боти — протестуйте прямо зараз</h2>
+        </div>
+        <p data-i18n="demos_note" class="text-sm text-slate-400 max-w-md">
+          Кожен проєкт адаптується під ваш логотип, послуги, прайс та мови (PL / UA / EN) за 1–3 дні.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Demo 1 -->
+        <article class="bg-slate-900/80 border border-slate-800 hover:border-slate-700 rounded-2xl p-6 flex flex-col justify-between transition">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="text-xs font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20 px-2.5 py-1 rounded-md">Landing Page</span>
+              <span class="text-xs text-slate-500">SEO • HTML • JS</span>
+            </div>
+            <h3 data-i18n="demo1_title" class="text-lg font-bold text-white mb-2">Лендінг із калькулятором ціни (Сервіс ремонту)</h3>
+            <p data-i18n="demo1_desc" class="text-sm text-slate-400 leading-relaxed mb-5">
+              Швидка посадкова сторінка для залучення клієнтів: вибір пристрою, миттєвий розрахунок вартості ремонту та відправка заявки в Telegram.
+            </p>
+          </div>
+          <a href="landing-demo.html" target="_blank" rel="noopener"
+            class="w-full text-center bg-slate-800 hover:bg-blue-600 text-white text-sm font-semibold py-2.5 rounded-xl transition">
+            <span data-i18n="btn_open_demo">Відкрити демо ↗</span>
+          </a>
+        </article>
+
+        <!-- Demo 2 -->
+        <article class="bg-slate-900/80 border border-slate-800 hover:border-slate-700 rounded-2xl p-6 flex flex-col justify-between transition">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/20 px-2.5 py-1 rounded-md">Business Website</span>
+              <span class="text-xs text-slate-500">Multi-section • SEO</span>
+            </div>
+            <h3 data-i18n="demo2_title" class="text-lg font-bold text-white mb-2">Інформаційний сайт компанії (Автосервіс)</h3>
+            <p data-i18n="demo2_desc" class="text-sm text-slate-400 leading-relaxed mb-5">
+              Повноцінний сайт під ключ для локального бізнесу у Варшаві: навігація, блок переваг, прайс-лист послуг, інтерактивний FAQ та контакти.
+            </p>
+          </div>
+          <a href="info-site-demo.html" target="_blank" rel="noopener"
+            class="w-full text-center bg-slate-800 hover:bg-blue-600 text-white text-sm font-semibold py-2.5 rounded-xl transition">
+            <span data-i18n="btn_open_demo">Відкрити демо ↗</span>
+          </a>
+        </article>
+
+        <!-- Demo 3 -->
+        <article class="bg-slate-900/80 border border-slate-800 hover:border-slate-700 rounded-2xl p-6 flex flex-col justify-between transition">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="text-xs font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 px-2.5 py-1 rounded-md">Lead Bot + Website</span>
+              <span class="text-xs text-slate-500">Telegram • API</span>
+            </div>
+            <h3 data-i18n="demo3_title" class="text-lg font-bold text-white mb-2">Бот прийому заявок, з'єднаний із сайтом</h3>
+            <p data-i18n="demo3_desc" class="text-sm text-slate-400 leading-relaxed mb-3">
+              Клієнт обирає пакет у боті й лишає контакт, а заявки з форм на сайті падають у той самий чат. Власник одним дотиком ставить статус: «Взято в роботу» або «Угода закрита».
+            </p>
+            <p data-i18n="demo3_try" class="text-xs text-slate-500 mb-5">Спробуйте: замовте тут сайт чи бота — заявка прийде мені.</p>
+          </div>
+          <a data-bot="portfolio" href="https://t.me/okger_portfolio_bot" target="_blank" rel="noopener"
+            class="w-full text-center bg-slate-800 hover:bg-indigo-600 text-white text-sm font-semibold py-2.5 rounded-xl transition flex items-center justify-center gap-1.5">
+            <span data-i18n="btn_open_bot">Відкрити бота в Telegram ↗</span>
+          </a>
+        </article>
+
+        <!-- Demo 4 -->
+        <article class="bg-slate-900/80 border border-slate-800 hover:border-slate-700 rounded-2xl p-6 flex flex-col justify-between transition">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2.5 py-1 rounded-md">Telegram Bot 24/7</span>
+              <span class="text-xs text-slate-500">Booking • UA/PL</span>
+            </div>
+            <h3 data-i18n="demo4_title" class="text-lg font-bold text-white mb-2">Бот онлайн-запису для салонів та студій</h3>
+            <p data-i18n="demo4_desc" class="text-sm text-slate-400 leading-relaxed mb-3">
+              Запис у 3 кліки українською чи польською, номер телефону одним дотиком. Адміністратор підтверджує або скасовує запис кнопкою, а клієнт одразу отримує сповіщення.
+            </p>
+            <p data-i18n="demo4_try" class="text-xs text-slate-500 mb-5">Спробуйте: запишіться на стрижку і подивіться, що отримує клієнт.</p>
+          </div>
+          <a data-bot="booking" href="https://t.me/okger_booking_bot" target="_blank" rel="noopener"
+            class="w-full text-center bg-slate-800 hover:bg-emerald-600 text-white text-sm font-semibold py-2.5 rounded-xl transition flex items-center justify-center gap-1.5">
+            <span data-i18n="btn_open_bot">Відкрити бота в Telegram ↗</span>
+          </a>
+        </article>
+
+        <!-- Demo 5 -->
+        <article class="bg-slate-900/80 border border-slate-800 hover:border-slate-700 rounded-2xl p-6 flex flex-col justify-between transition">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="text-xs font-semibold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 px-2.5 py-1 rounded-md">Estimator Bot</span>
+              <span class="text-xs text-slate-500">Calc • UA/PL</span>
+            </div>
+            <h3 data-i18n="demo5_title" class="text-lg font-bold text-white mb-2">Бот-калькулятор вартості ремонту та послуг</h3>
+            <p data-i18n="demo5_desc" class="text-sm text-slate-400 leading-relaxed mb-3">
+              Клієнт обирає послугу, вказує модель телефону чи авто й одразу бачить орієнтовну ціну та час. Його контакт фіксується, а розрахунок падає майстру в Telegram.
+            </p>
+            <p data-i18n="demo5_try" class="text-xs text-slate-500 mb-5">Спробуйте: порахуйте заміну екрана або ТО авто.</p>
+          </div>
+          <a data-bot="estimator" href="https://t.me/okger_estimator_bot" target="_blank" rel="noopener"
+            class="w-full text-center bg-slate-800 hover:bg-cyan-600 text-white text-sm font-semibold py-2.5 rounded-xl transition flex items-center justify-center gap-1.5">
+            <span data-i18n="btn_open_bot">Відкрити бота в Telegram ↗</span>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Pricing Section with interactive (i) tooltips -->
+    <section id="pricing" class="max-w-6xl mx-auto px-4 py-16 border-t border-slate-800/80">
+      <div class="mb-10">
+        <p data-i18n="price_kicker" class="text-blue-400 text-xs font-bold uppercase tracking-wider mb-2">Прозорий прайс</p>
+        <h2 data-i18n="price_title" class="text-2xl sm:text-3xl font-bold text-white mb-2">Послуги та вартість</h2>
+        <p data-i18n="price_subtitle" class="text-sm text-slate-400">Натисніть на значок «i» у куті картки, щоб побачити деталі формування ціни залежно від складності.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5 items-stretch">
+        <!-- Tier 1: Landing / Business Card (600 zł) -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between relative">
+          <div>
+            <div class="flex items-start justify-between gap-2 mb-1">
+              <h3 data-i18n="p1_name" class="font-bold text-white text-lg">Лендінг / Сайт-візитівка</h3>
+              <button type="button" onclick="toggleInfo('info-1')" aria-label="Деталі формування ціни"
+                class="w-6 h-6 rounded-full border border-slate-600 hover:border-blue-400 text-slate-300 hover:text-blue-400 text-xs font-serif italic font-bold flex items-center justify-center shrink-0 transition">
+                i
+              </button>
+            </div>
+
+            <!-- Collapsible Info Box -->
+            <div id="info-1" class="hidden mb-4 p-3 rounded-xl bg-slate-950 border border-blue-500/40 text-xs text-slate-300 leading-relaxed">
+              <p data-i18n="p1_info">
+                <strong>600 zł</strong> — базова односторінкова візитівка (адаптив, форма заявок у Telegram, базове SEO). Якщо додається інтерактивний калькулятор цін або 2–3 мови (PL/UA/EN) — <strong>750–900 zł</strong>.
+              </p>
+            </div>
+
+            <p data-i18n="p1_time" class="text-xs text-slate-400 mb-4">Термін: 2–3 дні • Фіксована ціна</p>
+            <div class="text-3xl font-extrabold text-white mb-5">600 zł</div>
+            <ul class="space-y-2.5 text-sm text-slate-300 mb-6">
+              <li data-i18n="p1_f1">✓ Адаптив під смартфони та ПК</li>
+              <li data-i18n="p1_f2">✓ Форма заявок напряму в Telegram</li>
+              <li data-i18n="p1_f3">✓ Базове SEO та швидке завантаження</li>
+              <li data-i18n="p1_f4">✓ Допомога з доменом та хостингом</li>
+            </ul>
+          </div>
+          <button type="button" onclick="orderService('Landing / Wizytówka (600 zł)')"
+            class="w-full bg-slate-800 hover:bg-slate-700 text-white text-sm font-semibold py-2.5 rounded-xl transition">
+            <span data-i18n="btn_choose">Обговорити проєкт</span>
+          </button>
+        </div>
+
+        <!-- Tier 2: Turnkey Website (od 850 zł) -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between relative">
+          <div>
+            <div class="flex items-start justify-between gap-2 mb-1">
+              <h3 data-i18n="p2_name" class="font-bold text-white text-lg">Сайт під ключ</h3>
+              <button type="button" onclick="toggleInfo('info-2')" aria-label="Деталі формування ціни"
+                class="w-6 h-6 rounded-full border border-slate-600 hover:border-blue-400 text-slate-300 hover:text-blue-400 text-xs font-serif italic font-bold flex items-center justify-center shrink-0 transition">
+                i
+              </button>
+            </div>
+
+            <div id="info-2" class="hidden mb-4 p-3 rounded-xl bg-slate-950 border border-blue-500/40 text-xs text-slate-300 leading-relaxed">
+              <p data-i18n="p2_info">
+                <strong>850–1 800 zł</strong> — вартість залежить від кількості сторінок/розділів (3–6+), каталогів послуг, галереї робіт, багатомовності та складних форм розрахунку вартості.
+              </p>
+            </div>
+
+            <p data-i18n="p2_time" class="text-xs text-slate-400 mb-4">Термін: 3–5 днів • Залежить від обсягу</p>
+            <div class="text-3xl font-extrabold text-white mb-5">od 850 zł</div>
+            <ul class="space-y-2.5 text-sm text-slate-300 mb-6">
+              <li data-i18n="p2_f1">✓ Кілька сторінок або розділів (прайс, FAQ)</li>
+              <li data-i18n="p2_f2">✓ Калькулятор вартості чи квіз-заявка</li>
+              <li data-i18n="p2_f3">✓ Двомовність (UA / PL) за потреби</li>
+              <li data-i18n="p2_f4">✓ Повна передача коду та доступів</li>
+            </ul>
+          </div>
+          <button type="button" onclick="orderService('Strona pod klucz (od 850 zł)')"
+            class="w-full bg-slate-800 hover:bg-slate-700 text-white text-sm font-semibold py-2.5 rounded-xl transition">
+            <span data-i18n="btn_choose">Обговорити проєкт</span>
+          </button>
+        </div>
+
+        <!-- Tier 3: Turnkey Telegram Bot (od 500 zł) -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between relative">
+          <div>
+            <div class="flex items-start justify-between gap-2 mb-1">
+              <h3 data-i18n="p3_name" class="font-bold text-white text-lg">Telegram-бот під ключ</h3>
+              <button type="button" onclick="toggleInfo('info-3')" aria-label="Деталі формування ціни"
+                class="w-6 h-6 rounded-full border border-slate-600 hover:border-blue-400 text-slate-300 hover:text-blue-400 text-xs font-serif italic font-bold flex items-center justify-center shrink-0 transition">
+                i
+              </button>
+            </div>
+
+            <div id="info-3" class="hidden mb-4 p-3 rounded-xl bg-slate-950 border border-blue-500/40 text-xs text-slate-300 leading-relaxed">
+              <p data-i18n="p3_info">
+                <strong>500 zł</strong> — базовий бот (меню, прайс, запис/заявка в чат, 1–2 мови). <strong>750–1 300 zł</strong> — інтеграція з Google Таблицями, складний квіз-калькулятор, сповіщення для кількох майстрів.
+              </p>
+            </div>
+
+            <p data-i18n="p3_time" class="text-xs text-slate-400 mb-4">Термін: 1–3 дні • Залежить від логіки</p>
+            <div class="text-3xl font-extrabold text-white mb-5">od 500 zł</div>
+            <ul class="space-y-2.5 text-sm text-slate-300 mb-6">
+              <li data-i18n="p3_f1">✓ Запис на послуги або калькулятор ціни</li>
+              <li data-i18n="p3_f2">✓ Сповіщення про заявки в робочий чат</li>
+              <li data-i18n="p3_f3">✓ Інтеграція з Google Таблицями</li>
+              <li data-i18n="p3_f4">✓ Підтримка двох мов (UA / PL)</li>
+            </ul>
+          </div>
+          <button type="button" onclick="orderService('Bot Telegram pod klucz (od 500 zł)')"
+            class="w-full bg-slate-800 hover:bg-slate-700 text-white text-sm font-semibold py-2.5 rounded-xl transition">
+            <span data-i18n="btn_choose">Обговорити проєкт</span>
+          </button>
+        </div>
+
+        <!-- Tier 4: Combo Website + Bot (od 1 150 zł) -->
+        <div class="bg-gradient-to-b from-blue-950/60 to-slate-900 border-2 border-blue-500 rounded-2xl p-6 flex flex-col justify-between relative">
+          <span data-i18n="p4_badge" class="absolute -top-3 left-5 bg-blue-600 text-white text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full">
+            Комплекс під ключ
+          </span>
+          <div>
+            <div class="flex items-start justify-between gap-2 mb-1">
+              <h3 data-i18n="p4_name" class="font-bold text-white text-lg">Сайт + Telegram-бот</h3>
+              <button type="button" onclick="toggleInfo('info-4')" aria-label="Деталі формування ціни"
+                class="w-6 h-6 rounded-full border border-blue-400/60 hover:border-white text-blue-300 hover:text-white text-xs font-serif italic font-bold flex items-center justify-center shrink-0 transition">
+                i
+              </button>
+            </div>
+
+            <div id="info-4" class="hidden mb-4 p-3 rounded-xl bg-slate-950 border border-blue-400/50 text-xs text-slate-200 leading-relaxed">
+              <p data-i18n="p4_info">
+                <strong>1 150–2 200 zł</strong> — сайт і бот працюють як одна система: заявки з форм сайту падають у того ж бота, де клієнти записуються самі. Плюс 14 днів підтримки після запуску.
+              </p>
+            </div>
+
+            <p data-i18n="p4_time" class="text-xs text-blue-300 mb-4">Термін: 3–5 днів • Одна система</p>
+            <div class="text-3xl font-extrabold text-white mb-5">od 1 150 zł</div>
+            <ul class="space-y-2.5 text-sm text-slate-200 mb-6">
+              <li data-i18n="p4_f1">✓ Сайт-візитівка або лендінг під ключ</li>
+              <li data-i18n="p4_f2">✓ Бот для запису та автоматизації заявок</li>
+              <li data-i18n="p4_f3">✓ Усі ліди падають в один робочий чат</li>
+              <li data-i18n="p4_f4">✓ 14 днів підтримки після запуску</li>
+            </ul>
+          </div>
+          <button type="button" onclick="orderService('Pakiet: Strona + Bot Telegram (od 1150 zł)')"
+            class="w-full bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold py-2.5 rounded-xl transition">
+            <span data-i18n="btn_choose">Обговорити проєкт</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="max-w-6xl mx-auto px-4 py-16 border-t border-slate-800/80">
+      <h2 data-i18n="proc_title" class="text-2xl sm:text-3xl font-bold text-white mb-8">Як ми працюємо (4 прості кроки)</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="bg-slate-900/60 border border-slate-800 p-5 rounded-2xl">
+          <div class="text-blue-400 font-extrabold text-sm mb-2">01</div>
+          <h3 data-i18n="step1_t" class="font-bold text-white mb-1">Короткий бриф (10 хв)</h3>
+          <p data-i18n="step1_d" class="text-sm text-slate-400">Обговорюємо задачу в чаті, фіксуємо точну ціну та дату здачі без довгих дзвінків.</p>
+        </div>
+        <div class="bg-slate-900/60 border border-slate-800 p-5 rounded-2xl">
+          <div class="text-blue-400 font-extrabold text-sm mb-2">02</div>
+          <h3 data-i18n="step2_t" class="font-bold text-white mb-1">Перший прототип за 24 год</h3>
+          <p data-i18n="step2_d" class="text-sm text-slate-400">Показую робочу чернетку сайту або бота, щоб ви одразу бачили результат наживо.</p>
+        </div>
+        <div class="bg-slate-900/60 border border-slate-800 p-5 rounded-2xl">
+          <div class="text-blue-400 font-extrabold text-sm mb-2">03</div>
+          <h3 data-i18n="step3_t" class="font-bold text-white mb-1">Правки та підключення</h3>
+          <p data-i18n="step3_d" class="text-sm text-slate-400">Дошліфовуємо деталі, підключаємо сповіщення в Telegram, аналітику та домен.</p>
+        </div>
+        <div class="bg-slate-900/60 border border-slate-800 p-5 rounded-2xl">
+          <div class="text-blue-400 font-extrabold text-sm mb-2">04</div>
+          <h3 data-i18n="step4_t" class="font-bold text-white mb-1">Передача всіх доступів</h3>
+          <p data-i18n="step4_d" class="text-sm text-slate-400">Віддаю весь вихідний код, паролі та коротку інструкцію, як користуватися системою.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="max-w-6xl mx-auto px-4 py-16 border-t border-slate-800/80">
+      <div class="bg-gradient-to-r from-slate-900 via-slate-900 to-blue-950/50 border border-slate-800 rounded-3xl p-8 md:p-12 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+        <div class="max-w-xl">
+          <h2 data-i18n="cta_title" class="text-2xl sm:text-3xl font-bold text-white mb-3">
+            Надішліть посилання на ваш сайт або Instagram — підкажу, де ви втрачаєте заявки
+          </h2>
+          <p data-i18n="cta_desc" class="text-slate-400 text-sm sm:text-base">
+            Зроблю швидкий безкоштовний розбір за 10 хвилин і запропоную рішення під ваш бюджет. Спілкуюся українською, польською та англійською (UA / PL / EN).
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row lg:flex-col gap-3 w-full lg:w-auto shrink-0">
+          <a id="footerTgBtn" href="https://t.me/exwtk" target="_blank" rel="noopener"
+            class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-7 py-4 rounded-xl text-center transition shadow-lg shadow-blue-600/20">
+            <span data-i18n="cta_tg_btn">Написати в Telegram (@exwtk)</span>
+          </a>
+          <button type="button" onclick="copyTgHandle()"
+            class="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 text-sm font-semibold px-6 py-3 rounded-xl transition">
+            <span id="copyBtnText" data-i18n="cta_copy_btn">Скопіювати нікнейм Telegram</span>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-900 py-8 px-4 text-center text-xs text-slate-500">
+    <p>© 2026 <span id="footerName">OK GER</span> • Web Development & Telegram Bots</p>
+  </footer>
+
+  <script>
+    // ================= НАЛАШТУВАННЯ =================
+    const CONFIG = {
+      name: "OK GER",
+      telegramUsername: "exwtk", // без символу @
+      // Юзернейми демо-ботів (без @)
+      bots: {
+        portfolio: "okger_portfolio_bot",
+        booking: "okger_booking_bot",
+        estimator: "okger_estimator_bot"
+      }
+    };
+    // ================================================
+
+    const I18N = {
+      ua: {
+        nav_demos: "Демо-проєкти",
+        nav_pricing: "Послуги та ціни",
+        nav_process: "Етапи роботи",
+        nav_contact: "Контакти",
+        hero_badge: "Приймаю замовлення • Варшава та віддалено",
+        hero_title: "Сайти під ключ та Telegram-боти, які приносять заявки бізнесу",
+        hero_subtitle: "Допомагаю локальному бізнесу у Варшаві (салонам, СТО, сервісам ремонту та майстрам) автоматизувати запис і перестати втрачати клієнтів у діректі. Швидкий запуск без агентських переплат.",
+        hero_cta_primary: "Написати в Telegram →",
+        hero_cta_secondary: "Подивитися живі демо",
+        stat_1_val: "2–4 дні",
+        stat_1_lbl: "Термін запуску",
+        stat_2_val: "Прозора ціна",
+        stat_2_lbl: "Фіксуємо до старту",
+        stat_3_val: "100% доступів",
+        stat_3_lbl: "Передача коду та акаунтів",
+        demos_kicker: "Інтерактивне портфоліо",
+        demos_title: "2 сайти + 3 Telegram-боти — протестуйте прямо зараз",
+        demos_note: "Кожен проєкт адаптується під ваш логотип, послуги, прайс та мови (PL / UA / EN) за 1–3 дні.",
+        demo1_title: "Лендінг із калькулятором ціни (Сервіс ремонту)",
+        demo1_desc: "Швидка посадкова сторінка для залучення клієнтів: вибір пристрою, миттєвий розрахунок вартості ремонту та відправка заявки в Telegram.",
+        demo2_title: "Інформаційний сайт компанії (Автосервіс)",
+        demo2_desc: "Повноцінний сайт під ключ для локального бізнесу у Варшаві: навігація, блок переваг, прайс-лист послуг, інтерактивний FAQ та контакти.",
+        demo3_title: "Бот прийому заявок, з'єднаний із сайтом",
+        demo3_desc: "Клієнт обирає пакет у боті й лишає контакт, а заявки з форм на сайті падають у той самий чат. Власник одним дотиком ставить статус: «Взято в роботу» або «Угода закрита».",
+        demo3_try: "Спробуйте: замовте тут сайт чи бота — заявка прийде мені.",
+        demo4_title: "Бот онлайн-запису для салонів та студій",
+        demo4_desc: "Запис у 3 кліки українською чи польською, номер телефону одним дотиком. Адміністратор підтверджує або скасовує запис кнопкою, а клієнт одразу отримує сповіщення.",
+        demo4_try: "Спробуйте: запишіться на стрижку і подивіться, що отримує клієнт.",
+        demo5_title: "Бот-калькулятор вартості ремонту та послуг",
+        demo5_desc: "Клієнт обирає послугу, вказує модель телефону чи авто й одразу бачить орієнтовну ціну та час. Його контакт фіксується, а розрахунок падає майстру в Telegram.",
+        demo5_try: "Спробуйте: порахуйте заміну екрана або ТО авто.",
+        btn_open_bot: "Відкрити бота в Telegram ↗",
+        btn_open_demo: "Відкрити демо ↗",
+        price_kicker: "Прозорий прайс",
+        price_title: "Послуги та вартість",
+        price_subtitle: "Натисніть на значок «i» у куті картки, щоб побачити деталі формування ціни залежно від складності.",
+        p1_name: "Лендінг / Сайт-візитівка",
+        p1_info: "<strong>600 zł</strong> — базова односторінкова візитівка (адаптив, форма заявок у Telegram, базове SEO). Якщо додається інтерактивний калькулятор цін або 2–3 мови (PL/UA/EN) — <strong>750–900 zł</strong>.",
+        p1_time: "Термін: 2–3 дні • Фіксована ціна",
+        p1_f1: "✓ Адаптив під смартфони та ПК",
+        p1_f2: "✓ Форма заявок напряму в Telegram",
+        p1_f3: "✓ Базове SEO та швидке завантаження",
+        p1_f4: "✓ Допомога з доменом та хостингом",
+        p2_name: "Сайт під ключ",
+        p2_info: "<strong>850–1 800 zł</strong> — вартість залежить від кількості сторінок/розділів (3–6+), каталогів послуг, галереї робіт, багатомовності та складних форм розрахунку вартості.",
+        p2_time: "Термін: 3–5 днів • Залежить від обсягу",
+        p2_f1: "✓ Кілька сторінок або розділів (прайс, FAQ)",
+        p2_f2: "✓ Калькулятор вартості чи квіз-заявка",
+        p2_f3: "✓ Двомовність (UA / PL) за потреби",
+        p2_f4: "✓ Повна передача коду та доступів",
+        p3_name: "Telegram-бот під ключ",
+        p3_info: "<strong>500 zł</strong> — базовий бот (меню, прайс, запис/заявка в чат, 1–2 мови). <strong>750–1 300 zł</strong> — інтеграція з Google Таблицями, складний квіз-калькулятор, сповіщення для кількох майстрів.",
+        p3_time: "Термін: 1–3 дні • Залежить від логіки",
+        p3_f1: "✓ Запис на послуги або калькулятор ціни",
+        p3_f2: "✓ Сповіщення про заявки в робочий чат",
+        p3_f3: "✓ Інтеграція з Google Таблицями",
+        p3_f4: "✓ Підтримка двох мов (UA / PL)",
+        p4_badge: "Комплекс під ключ",
+        p4_name: "Сайт + Telegram-бот",
+        p4_info: "<strong>1 150–2 200 zł</strong> — сайт і бот працюють як одна система: заявки з форм сайту падають у того ж бота, де клієнти записуються самі. Плюс 14 днів підтримки після запуску.",
+        p4_time: "Термін: 3–5 днів • Одна система",
+        p4_f1: "✓ Сайт-візитівка або лендінг під ключ",
+        p4_f2: "✓ Бот для запису та автоматизації заявок",
+        p4_f3: "✓ Усі ліди падають в один робочий чат",
+        p4_f4: "✓ 14 днів підтримки після запуску",
+        btn_choose: "Обговорити проєкт",
+        proc_title: "Як ми працюємо (4 прості кроки)",
+        step1_t: "Короткий бриф (10 хв)",
+        step1_d: "Обговорюємо задачу в чаті, фіксуємо точну ціну та дату здачі без довгих дзвінків.",
+        step2_t: "Перший прототип за 24 год",
+        step2_d: "Показую робочу чернетку сайту або бота, щоб ви одразу бачили результат наживо.",
+        step3_t: "Правки та підключення",
+        step3_d: "Дошліфовуємо деталі, підключаємо сповіщення в Telegram, аналітику та домен.",
+        step4_t: "Передача всіх доступів",
+        step4_d: "Віддаю весь вихідний код, паролі та коротку інструкцію, як користуватися системою.",
+        cta_title: "Надішліть посилання на ваш сайт або Instagram — підкажу, де ви втрачаєте заявки",
+        cta_desc: "Зроблю швидкий безкоштовний розбір за 10 хвилин і запропоную рішення під ваш бюджет. Спілкуюся українською, польською та англійською (UA / PL / EN).",
+        cta_tg_btn: `Написати в Telegram (@${CONFIG.telegramUsername})`,
+        cta_copy_btn: "Скопіювати нікнейм Telegram",
+        copied_msg: "✅ Нікнейм скопійовано!"
+      },
+      pl: {
+        nav_demos: "Projekty demo",
+        nav_pricing: "Usługi i cennik",
+        nav_process: "Etapy pracy",
+        nav_contact: "Kontakt",
+        hero_badge: "Przyjmuję zlecenia • Warszawa i zdalnie",
+        hero_title: "Strony pod klucz i boty Telegram, które generują klientów",
+        hero_subtitle: "Pomagam lokalnym firmom w Warszawie (salonom, warsztatom, serwisom i specjalistom) zautomatyzować zapisy i przestać tracić zapytania w DM. Szybkie wdrożenie bez prowizji agencji.",
+        hero_cta_primary: "Napisz na Telegramie →",
+        hero_cta_secondary: "Zobacz działające demo",
+        stat_1_val: "2–4 dni",
+        stat_1_lbl: "Czas realizacji",
+        stat_2_val: "Jasna wycena",
+        stat_2_lbl: "Ustalamy przed startem",
+        stat_3_val: "100% dostępów",
+        stat_3_lbl: "Przekazanie kodu i kont",
+        demos_kicker: "Interaktywne portfolio",
+        demos_title: "2 strony + 3 boty Telegram — przetestuj od razu",
+        demos_note: "Każdy projekt dopasowuję pod Twoje logo, usługi, cennik i języki (PL / UA / EN) w 1–3 dni.",
+        demo1_title: "Landing Page z kalkulatorem ceny (Serwis GSM)",
+        demo1_desc: "Szybka strona docelowa do pozyskiwania klientów: wybór urządzenia, natychmiastowa wycena naprawy i wysyłka zgłoszenia na Telegram.",
+        demo2_title: "Strona informacyjna firmy (Warsztat samochodowy)",
+        demo2_desc: "Kompletna strona pod klucz dla lokalnej firmy w Warszawie: nawigacja, sekcja przewag, cennik usług, interaktywne FAQ oraz kontakt.",
+        demo3_title: "Bot do przyjmowania zgłoszeń, połączony ze stroną",
+        demo3_desc: "Klient wybiera pakiet w bocie i zostawia kontakt, a zgłoszenia z formularzy na stronie trafiają do tego samego czatu. Właściciel jednym dotknięciem ustawia status: «W realizacji» lub «Umowa zamknięta».",
+        demo3_try: "Sprawdź: zamów tu stronę lub bota — zgłoszenie trafi do mnie.",
+        demo4_title: "Bot do rezerwacji wizyt 24/7 dla salonów",
+        demo4_desc: "Zapis w 3 kliknięciach po polsku lub ukraińsku, numer telefonu jednym dotknięciem. Administrator potwierdza lub anuluje wizytę przyciskiem, a klient od razu dostaje powiadomienie.",
+        demo4_try: "Sprawdź: umów się na strzyżenie i zobacz, co dostaje klient.",
+        demo5_title: "Bot-kalkulator wyceny napraw i usług",
+        demo5_desc: "Klient wybiera usługę, podaje model telefonu lub auta i od razu widzi szacunkową cenę oraz czas. Kontakt zostaje zapisany, a wycena trafia do serwisanta na Telegram.",
+        demo5_try: "Sprawdź: wyceń wymianę ekranu lub serwis auta.",
+        btn_open_bot: "Otwórz bota w Telegramie ↗",
+        btn_open_demo: "Otwórz demo ↗",
+        price_kicker: "Przejrzysty cennik",
+        price_title: "Usługi i koszt realizacji",
+        price_subtitle: "Kliknij ikonę «i» w rogu karty, aby sprawdzić szczegóły wyceny w zależności od zakresu prac.",
+        p1_name: "Landing Page / Strona wizytówka",
+        p1_info: "<strong>600 zł</strong> — podstawowa wizytówka jednostronicowa (RWD, formularz na Telegram, podstawowe SEO). Z interaktywnym kalkulatorem lub 2–3 językami (PL/UA/EN) — <strong>750–900 zł</strong>.",
+        p1_time: "Czas: 2–3 dni • Stała cena",
+        p1_f1: "✓ Pełna responsywność (mobile + desktop)",
+        p1_f2: "✓ Formularz zgłoszeń prosto na Telegram",
+        p1_f3: "✓ Podstawowe SEO i błyskawiczne ładowanie",
+        p1_f4: "✓ Pomoc z domeną i darmowym hostingiem",
+        p2_name: "Strona WWW pod klucz",
+        p2_info: "<strong>850–1 800 zł</strong> — cena zależy od liczby podstron/sekcji (3–6+), katalogu usług, galerii realizacji, wielojęzyczności oraz zaawansowanych formularzy.",
+        p2_time: "Czas: 3–5 dni • Zależnie od zakresu",
+        p2_f1: "✓ Kilka podstron lub sekcji (cennik, FAQ)",
+        p2_f2: "✓ Kalkulator wyceny lub formularz-quiz",
+        p2_f3: "✓ Wersja dwujęzyczna (PL / UA) w razie potrzeby",
+        p2_f4: "✓ Pełne przekazanie kodu i dostępów",
+        p3_name: "Bot Telegram pod klucz",
+        p3_info: "<strong>500 zł</strong> — podstawowy bot (menu, cennik, zapis/zgłoszenie na czat, 1–2 języki). <strong>750–1 300 zł</strong> — integracja z Arkuszami Google, rozbudowany kalkulator, powiadomienia dla kilku pracowników.",
+        p3_time: "Czas: 1–3 dni • Zależnie od logiki",
+        p3_f1: "✓ Rezerwacja terminów lub kalkulator ceny",
+        p3_f2: "✓ Powiadomienia o zgłoszeniach na czat",
+        p3_f3: "✓ Integracja z Arkuszami Google",
+        p3_f4: "✓ Obsługa dwóch języków (PL / UA)",
+        p4_badge: "Pakiet pod klucz",
+        p4_name: "Strona + Bot Telegram",
+        p4_info: "<strong>1 150–2 200 zł</strong> — strona i bot działają jako jeden system: zgłoszenia z formularzy trafiają do tego samego bota, w którym klienci zapisują się sami. Do tego 14 dni wsparcia po starcie.",
+        p4_time: "Czas: 3–5 dni • Jeden system",
+        p4_f1: "✓ Strona wizytówka lub landing pod klucz",
+        p4_f2: "✓ Bot do zapisów i automatyzacji zapytań",
+        p4_f3: "✓ Wszystkie zgłoszenia w jednym czacie",
+        p4_f4: "✓ 14 dni wsparcia po uruchomieniu",
+        btn_choose: "Omów projekt",
+        proc_title: "Jak pracujemy (4 proste kroki)",
+        step1_t: "Krótki brief (10 min)",
+        step1_d: "Ustalamy cel na czacie, blokujemy stałą cenę oraz termin oddania bez zbędnych spotkań.",
+        step2_t: "Pierwszy prototyp w 24h",
+        step2_d: "Pokazuję działającą wersję roboczą strony lub bota, abyś od razu widział efekt na żywo.",
+        step3_t: "Poprawki i integracje",
+        step3_d: "Dopracowujemy szczegóły, podpinamy powiadomienia Telegram, analitykę oraz domenę.",
+        step4_t: "Przekazanie wszystkich dostępów",
+        step4_d: "Oddaję cały kod źródłowy, hasła oraz krótką instrukcję obsługi całego systemu.",
+        cta_title: "Wyślij link do swojej strony lub Instagrama — podpowiem, gdzie uciekają klienci",
+        cta_desc: "Zrobię szybką bezpłatną analizę w 10 minut i zaproponuję rozwiązanie pod Twój budżet. Rozmawiam po polsku, ukraińsku i angielsku (PL / UA / EN).",
+        cta_tg_btn: `Napisz na Telegramie (@${CONFIG.telegramUsername})`,
+        cta_copy_btn: "Skopiuj nick Telegram",
+        copied_msg: "✅ Nick skopiowany!"
+      }
+    };
+
+    let currentLang = "ua";
+
+    function initConfig() {
+      const tgUrl = `https://t.me/${CONFIG.telegramUsername}`;
+      document.getElementById("brandName").textContent = CONFIG.name;
+      document.getElementById("footerName").textContent = CONFIG.name;
+      document.getElementById("headerTgBtn").href = tgUrl;
+      document.getElementById("heroTgBtn").href = tgUrl;
+      document.getElementById("footerTgBtn").href = tgUrl;
+      document.querySelectorAll("[data-bot]").forEach(a => {
+        const u = CONFIG.bots[a.dataset.bot];
+        if (u) a.href = `https://t.me/${u}`;
+      });
+    }
+
+    function toggleInfo(id) {
+      const box = document.getElementById(id);
+      const isHidden = box.classList.contains("hidden");
+      ["info-1", "info-2", "info-3", "info-4"].forEach(item => {
+        document.getElementById(item).classList.add("hidden");
+      });
+      if (isHidden) box.classList.remove("hidden");
+    }
+
+    function setLang(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang === "ua" ? "uk" : "pl";
+
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.getAttribute("data-i18n");
+        if (I18N[lang][key]) {
+          el.innerHTML = I18N[lang][key];
+        }
+      });
+
+      const btnUa = document.getElementById("btn-ua");
+      const btnPl = document.getElementById("btn-pl");
+      if (lang === "ua") {
+        btnUa.className = "px-2.5 py-1 rounded-md bg-blue-600 text-white transition";
+        btnPl.className = "px-2.5 py-1 rounded-md text-slate-400 hover:text-white transition";
+      } else {
+        btnPl.className = "px-2.5 py-1 rounded-md bg-blue-600 text-white transition";
+        btnUa.className = "px-2.5 py-1 rounded-md text-slate-400 hover:text-white transition";
+      }
+    }
+
+    function orderService(serviceTitle) {
+      const prefix = currentLang === "ua"
+        ? `Привіт! Цікавить замовлення: ${serviceTitle}. Підкажіть по деталях.`
+        : `Cześć! Interesuje mnie realizacja: ${serviceTitle}. Porozmawiajmy o szczegółach.`;
+      window.open(`https://t.me/${CONFIG.telegramUsername}?text=${encodeURIComponent(prefix)}`, "_blank", "noopener");
+    }
+
+    function copyTgHandle() {
+      navigator.clipboard.writeText(`@${CONFIG.telegramUsername}`).then(() => {
+        const label = document.getElementById("copyBtnText");
+        label.textContent = I18N[currentLang].copied_msg;
+        setTimeout(() => { label.textContent = I18N[currentLang].cta_copy_btn; }, 2000);
+      });
+    }
+
+    initConfig();
+  </script>
+</body>
+</html>

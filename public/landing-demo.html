@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="uk" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ExpressFix Lab — Ремонт iPhone, Samsung та MacBook у Варшаві | Demo OK GER</title>
+  <meta name="description" content="Експрес-ремонт телефонів і ноутбуків у Варшаві (Mokotów) за 45 хвилин. Оригінальні дисплеї та батареї, ремонт без пароля від пристрою, гарантія 12 місяців." />
+  <meta name="robots" content="index, follow" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .bg-grid {
+      background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 36px 36px;
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobilePhoneRepair",
+    "name": "ExpressFix Lab Warszawa",
+    "address": { "@type": "PostalAddress", "streetAddress": "ul. Jana Pawła Woronicza 80", "addressLocality": "Warszawa", "addressCountry": "PL" },
+    "telephone": "+48512345678",
+    "priceRange": "119 PLN - 1490 PLN"
+  }
+  </script>
+</head>
+<body class="bg-zinc-950 text-zinc-100 antialiased selection:bg-emerald-500 selection:text-zinc-950">
+
+  <!-- Live Workshop Status Bar -->
+  <div class="bg-zinc-900 border-b border-zinc-800/90 text-xs py-2 px-4">
+    <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2 text-zinc-300">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span data-i18n="top_status">Майстерня на Mokotów (ul. Woronicza 80) відкрита • Очікування в черзі: ~15 хв</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="tel:+48512345678" class="font-semibold text-white hover:text-emerald-400 transition">📞 +48 512 345 678</a>
+        <a href="index.html" data-i18n="back_link" class="text-zinc-400 hover:text-white transition">← Портфоліо OK GER</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sticky Navigation -->
+  <header class="sticky top-0 z-40 bg-zinc-950/90 backdrop-blur border-b border-zinc-800/80">
+    <div class="max-w-6xl mx-auto px-4 py-3.5 flex items-center justify-between gap-4">
+      <a href="#" class="flex items-center gap-2.5 font-extrabold text-lg tracking-tight text-white">
+        <span class="w-8 h-8 rounded-lg bg-emerald-500 text-zinc-950 flex items-center justify-center">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </span>
+        <span>ExpressFix<span class="text-emerald-400">.lab</span></span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-zinc-400">
+        <a href="#calculator" data-i18n="nav_calc" class="hover:text-white transition">Калькулятор цін</a>
+        <a href="#standards" data-i18n="nav_std" class="hover:text-white transition">Стандарти ремонту</a>
+        <a href="#reviews" data-i18n="nav_rev" class="hover:text-white transition">Відгуки (4.9 ★)</a>
+        <a href="#faq" class="hover:text-white transition">FAQ</a>
+      </nav>
+
+      <div class="flex items-center gap-2.5">
+        <div class="flex items-center bg-zinc-900 border border-zinc-800 rounded-lg p-0.5 text-xs font-semibold">
+          <button type="button" id="btn-ua" onclick="setLang('ua')" class="px-2.5 py-1 rounded-md bg-emerald-500 text-zinc-950 transition">UA</button>
+          <button type="button" id="btn-pl" onclick="setLang('pl')" class="px-2.5 py-1 rounded-md text-zinc-400 hover:text-white transition">PL</button>
+        </div>
+        <button type="button" onclick="openCallbackModal()" data-i18n="nav_call_btn"
+          class="bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 text-white text-xs sm:text-sm font-semibold px-3.5 py-2 rounded-lg transition">
+          Дзвінок за 30 сек
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero + Interactive Repair Configurator -->
+    <section id="calculator" class="bg-grid border-b border-zinc-800/80">
+      <div class="max-w-6xl mx-auto px-4 py-12 md:py-20 grid lg:grid-cols-12 gap-10 items-start">
+
+        <!-- Left Column: Offer & Quick Model Selector -->
+        <div class="lg:col-span-6 space-y-6">
+          <div class="inline-flex items-center gap-2 bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-medium px-3 py-1.5 rounded-full">
+            <span class="text-emerald-400 font-bold">85%</span>
+            <span data-i18n="hero_pill">ремонтів виконуємо при вас за 35–60 хвилин</span>
+          </div>
+
+          <h1 data-i18n="hero_h1" class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-[1.1]">
+            Відновимо ваш iPhone, Samsung чи MacBook без черг і переплат
+          </h1>
+
+          <p data-i18n="hero_p" class="text-zinc-400 text-base sm:text-lg leading-relaxed">
+            Власний склад дисплеїв та батарей у Варшаві. Працюємо без пароля від вашого пристрою, відновлюємо пиловологозахист та даємо письмову гарантію до 12 місяців.
+          </p>
+
+          <!-- Quick Popular Model Chips -->
+          <div>
+            <p data-i18n="quick_lbl" class="text-xs uppercase tracking-wider text-zinc-500 font-semibold mb-2.5">Швидкий вибір популярної моделі:</p>
+            <div class="flex flex-wrap gap-2">
+              <button type="button" onclick="quickPreset('iphone', 'screen', 'orig')"
+                class="text-xs bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-emerald-500/50 text-zinc-200 px-3 py-2 rounded-lg transition">
+                iPhone 13 / 14 Pro — <span data-i18n="chip_scr">Екран</span>
+              </button>
+              <button type="button" onclick="quickPreset('iphone', 'battery', 'orig')"
+                class="text-xs bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-emerald-500/50 text-zinc-200 px-3 py-2 rounded-lg transition">
+                iPhone 11 / 12 / 13 — <span data-i18n="chip_bat">Батарея</span>
+              </button>
+              <button type="button" onclick="quickPreset('samsung', 'screen', 'orig')"
+                class="text-xs bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-emerald-500/50 text-zinc-200 px-3 py-2 rounded-lg transition">
+                Samsung S22 / S23 / S24
+              </button>
+              <button type="button" onclick="quickPreset('macbook', 'battery', 'orig')"
+                class="text-xs bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-emerald-500/50 text-zinc-200 px-3 py-2 rounded-lg transition">
+                MacBook Air / Pro
+              </button>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-wrap gap-3 pt-2">
+            <a id="tgEstimatorBtn" href="https://t.me/okger_estimator_bot" target="_blank" rel="noopener"
+              class="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-white text-sm font-semibold px-5 py-3 rounded-xl transition flex items-center gap-2">
+              <span class="text-sky-400">✈</span>
+              <span data-i18n="btn_tg_diag">Порахувати ціну в Telegram-боті</span>
+            </a>
+            <button type="button" onclick="openCallbackModal()"
+              class="text-sm font-semibold text-emerald-400 hover:text-emerald-300 px-4 py-3 transition">
+              <span data-i18n="btn_courier">Викликати кур'єра по Варшаві →</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Column: Multi-step Interactive Price Configurator -->
+        <div class="lg:col-span-6 bg-zinc-900 border border-zinc-800 rounded-2xl p-6 sm:p-7 shadow-2xl">
+          <div class="flex items-center justify-between mb-5">
+            <div>
+              <h2 data-i18n="calc_h2" class="text-lg sm:text-xl font-bold text-white">Розрахунок вартості та часу</h2>
+              <p data-i18n="calc_sub" class="text-xs text-zinc-400">Оберіть бренд, несправність та клас запчастини</p>
+            </div>
+            <span data-i18n="badge_online" class="text-xs font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2.5 py-1 rounded-md">
+              -10% онлайн
+            </span>
+          </div>
+
+          <!-- Step 1: Brand Tabs -->
+          <div class="grid grid-cols-3 gap-2 bg-zinc-950 p-1 rounded-xl border border-zinc-800 mb-4">
+            <button type="button" id="brand-iphone" onclick="selectBrand('iphone')"
+              class="py-2 text-xs font-bold rounded-lg bg-zinc-800 text-white transition">iPhone</button>
+            <button type="button" id="brand-samsung" onclick="selectBrand('samsung')"
+              class="py-2 text-xs font-bold rounded-lg text-zinc-400 hover:text-white transition">Samsung / Xiaomi</button>
+            <button type="button" id="brand-macbook" onclick="selectBrand('macbook')"
+              class="py-2 text-xs font-bold rounded-lg text-zinc-400 hover:text-white transition">MacBook / Laptop</button>
+          </div>
+
+          <!-- Step 2: Issue Buttons -->
+          <div class="grid grid-cols-2 gap-2.5 mb-4">
+            <button type="button" id="iss-screen" onclick="selectIssue('screen')"
+              class="p-3 rounded-xl border-2 border-emerald-500 bg-emerald-500/10 text-left transition">
+              <div data-i18n="i_scr_t" class="text-xs font-bold text-white">Дисплей / Скло</div>
+              <div data-i18n="i_scr_s" class="text-[11px] text-zinc-400">Тріщини, смуги, не працює сенсор</div>
+            </button>
+            <button type="button" id="iss-battery" onclick="selectIssue('battery')"
+              class="p-3 rounded-xl border border-zinc-800 bg-zinc-950/60 hover:border-zinc-700 text-left transition">
+              <div data-i18n="i_bat_t" class="text-xs font-bold text-white">Акумулятор</div>
+              <div data-i18n="i_bat_s" class="text-[11px] text-zinc-400">Швидко сідає, здуття, знос &lt;80%</div>
+            </button>
+            <button type="button" id="iss-port" onclick="selectIssue('port')"
+              class="p-3 rounded-xl border border-zinc-800 bg-zinc-950/60 hover:border-zinc-700 text-left transition">
+              <div data-i18n="i_prt_t" class="text-xs font-bold text-white">Роз'єм / Динамік</div>
+              <div data-i18n="i_prt_s" class="text-[11px] text-zinc-400">Не заряджається, погано чути</div>
+            </button>
+            <button type="button" id="iss-water" onclick="selectIssue('water')"
+              class="p-3 rounded-xl border border-zinc-800 bg-zinc-950/60 hover:border-zinc-700 text-left transition">
+              <div data-i18n="i_wtr_t" class="text-xs font-bold text-white">Після води / Плата</div>
+              <div data-i18n="i_wtr_s" class="text-[11px] text-zinc-400">Ультразвукова чистка + діагностика</div>
+            </button>
+          </div>
+
+          <!-- Step 3: Part Quality Tier Toggle -->
+          <div class="mb-5">
+            <label data-i18n="tier_lbl" class="block text-xs text-zinc-400 mb-2">Клас комплектуючих:</label>
+            <div class="grid grid-cols-2 gap-2">
+              <button type="button" id="tier-orig" onclick="selectTier('orig')"
+                class="py-2 px-3 rounded-lg border border-emerald-500 bg-emerald-500/10 text-xs font-semibold text-white transition">
+                <span data-i18n="tier_orig">Оригінал / Service Pack (12 міс.)</span>
+              </button>
+              <button type="button" id="tier-oled" onclick="selectTier('oled')"
+                class="py-2 px-3 rounded-lg border border-zinc-800 bg-zinc-950 text-xs font-semibold text-zinc-400 hover:text-white transition">
+                <span data-i18n="tier_oled">Преміум аналог OLED (6 міс.)</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Dynamic Result Box -->
+          <div class="bg-zinc-950 border border-zinc-800 rounded-xl p-4 mb-5 flex items-center justify-between gap-4">
+            <div>
+              <div data-i18n="res_price_lbl" class="text-xs text-zinc-400">Вартість зі знижкою 10%:</div>
+              <div class="flex items-baseline gap-2">
+                <span id="finalPrice" class="text-2xl sm:text-3xl font-extrabold text-emerald-400 tabular-nums">390 zł</span>
+                <span id="oldPrice" class="text-xs text-zinc-500 line-through tabular-nums">435 zł</span>
+              </div>
+            </div>
+            <div class="text-right">
+              <div data-i18n="res_time_lbl" class="text-xs text-zinc-400">Час роботи:</div>
+              <div id="repairTime" class="text-sm font-bold text-white">45 хв</div>
+              <div id="warrantyBadge" class="text-[11px] text-emerald-400">Гарантія 12 міс.</div>
+            </div>
+          </div>
+
+          <!-- Quick Booking Form -->
+          <form id="repairForm" class="space-y-3">
+            <div class="grid sm:grid-cols-2 gap-2.5">
+              <input id="modelInput" type="text" required placeholder="Модель (напр. iPhone 14 Pro)"
+                class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-emerald-500" />
+              <input id="phoneInput" type="tel" required placeholder="+48 500 000 000"
+                class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-emerald-500" />
+            </div>
+            <button type="submit" data-i18n="btn_lock_price"
+              class="w-full bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-extrabold py-3 rounded-xl transition">
+              Зафіксувати ціну та забронювати деталь →
+            </button>
+            <p id="formFeedback" class="hidden text-xs text-center text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 rounded-lg p-2.5"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Workshop Standards (3 Concrete Trust Pillars) -->
+    <section id="standards" class="max-w-6xl mx-auto px-4 py-16">
+      <div class="max-w-2xl mb-10">
+        <p data-i18n="std_kicker" class="text-emerald-400 text-xs font-bold uppercase tracking-wider mb-2">Прозорий сервіс</p>
+        <h2 data-i18n="std_h2" class="text-2xl sm:text-3xl font-bold text-white">Чому 3 400+ клієнтів у Варшаві обирають ExpressFix</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-zinc-900/70 border border-zinc-800 rounded-2xl p-6">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          </div>
+          <h3 data-i18n="st1_h3" class="font-bold text-white text-lg mb-2">Ремонт без пароля від телефону</h3>
+          <p data-i18n="st1_p" class="text-sm text-zinc-400 leading-relaxed">
+            Для заміни екрана, батареї чи роз'єму нам не потрібен код доступу до ваших фото, месенджерів чи банкінгу. Усі дані лишаються недоторканими.
+          </p>
+        </div>
+
+        <div class="bg-zinc-900/70 border border-zinc-800 rounded-2xl p-6">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <h3 data-i18n="st2_h3" class="font-bold text-white text-lg mb-2">Відновлення вологозахисту IP68</h3>
+          <p data-i18n="st2_p" class="text-sm text-zinc-400 leading-relaxed">
+            Після кожного відкриття корпусу встановлюємо нову заводську проклейку дисплея та перевіряємо герметичність під пресом, як із заводу.
+          </p>
+        </div>
+
+        <div class="bg-zinc-900/70 border border-zinc-800 rounded-2xl p-6">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z"/></svg>
+          </div>
+          <h3 data-i18n="st3_h3" class="font-bold text-white text-lg mb-2">Оплата лише після перевірки</h3>
+          <p data-i18n="st3_p" class="text-sm text-zinc-400 leading-relaxed">
+            Жодних передоплат за стандартний ремонт. Ви тестуєте True Tone, Face ID, камери та зарядку — і тільки після цього оплачуєте чеком або Faktura VAT 23%.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Realistic Warsaw Customer Reviews -->
+    <section id="reviews" class="max-w-6xl mx-auto px-4 py-14 border-t border-zinc-800/80">
+      <div class="flex flex-wrap items-center justify-between gap-4 mb-8">
+        <div>
+          <h2 data-i18n="rev_h2" class="text-2xl font-bold text-white">Останні відгуки клієнтів у Варшаві</h2>
+          <p data-i18n="rev_sub" class="text-sm text-zinc-400">Рейтинг 4.9 ★ на основі реальних звернень</p>
+        </div>
+        <span class="text-xs bg-zinc-900 border border-zinc-800 px-3 py-1.5 rounded-lg text-zinc-300">
+          Google Maps Verified • Mokotów
+        </span>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-5">
+        <article class="bg-zinc-900 border border-zinc-800 rounded-2xl p-5 space-y-3">
+          <div class="flex items-center justify-between text-xs">
+            <span class="font-bold text-white">Олег Кравчук</span>
+            <span class="text-amber-400">★★★★★</span>
+          </div>
+          <p data-i18n="r1_txt" class="text-sm text-zinc-300 leading-relaxed">
+            «Розбив екран на iPhone 14 Pro біля метро Wierzbno. Заїхав без запису — поставили оригінальний дисплей із перенесенням True Tone за 45 хвилин. Ціна зійшлася копійка в копійку з калькулятором.»
+          </p>
+          <p class="text-[11px] text-zinc-500">iPhone 14 Pro • 3 дні тому</p>
+        </article>
+
+        <article class="bg-zinc-900 border border-zinc-800 rounded-2xl p-5 space-y-3">
+          <div class="flex items-center justify-between text-xs">
+            <span class="font-bold text-white">Katarzyna Nowak</span>
+            <span class="text-amber-400">★★★★★</span>
+          </div>
+          <p data-i18n="r2_txt" class="text-sm text-zinc-300 leading-relaxed">
+            «Заміна батареї в iPhone 12 зайняла пів години. Телефон знову тримає цілий день, стан 100%, а всередину встановили нову вологозахисну проклейку. Фактура VAT одразу на місці.»
+          </p>
+          <p class="text-[11px] text-zinc-500">iPhone 12 • тиждень тому</p>
+        </article>
+
+        <article class="bg-zinc-900 border border-zinc-800 rounded-2xl p-5 space-y-3">
+          <div class="flex items-center justify-between text-xs">
+            <span class="font-bold text-white">Артем Мельник</span>
+            <span class="text-amber-400">★★★★★</span>
+          </div>
+          <p data-i18n="r3_txt" class="text-sm text-zinc-300 leading-relaxed">
+            «Залив кавою MacBook Air M1. В іншому сервісі сказали міняти всю плату за 2500 zł, тут зробили ультразвукову чистку та відновили контролер живлення за 480 zł. Рекомендую!»
+          </p>
+          <p class="text-[11px] text-zinc-500">MacBook Air M1 • 2 тижні тому</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="max-w-3xl mx-auto px-4 py-14 border-t border-zinc-800/80">
+      <h2 data-i18n="faq_h2" class="text-2xl font-bold text-white mb-6 text-center">Часті запитання</h2>
+      <div class="space-y-3">
+        <details class="bg-zinc-900 border border-zinc-800 rounded-xl p-4">
+          <summary data-i18n="q1" class="font-semibold text-white cursor-pointer">Чи зникне повідомлення «Невідома деталь» після заміни батареї або екрана iPhone?</summary>
+          <p data-i18n="a1" class="text-sm text-zinc-400 mt-2.5 leading-relaxed">
+            Так, при виборі класу «Оригінал / Service Pack» ми виконуємо калібрування серійних номерів та перенесення контролера, тому в налаштуваннях відображається 100% ємність і працює True Tone без системних помилок.
+          </p>
+        </details>
+        <details class="bg-zinc-900 border border-zinc-800 rounded-xl p-4">
+          <summary data-i18n="q2" class="font-semibold text-white cursor-pointer">Чи можна передати телефон кур'єром по Варшаві?</summary>
+          <p data-i18n="a2" class="text-sm text-zinc-400 mt-2.5 leading-relaxed">
+            Так, відправляємо кур'єра Bolt / Uber по всій Варшаві (Mokotów, Wola, Śródmieście, Praga) або приймаємо пристрої через Paczkomat InPost із поверненням у день ремонту.
+          </p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-zinc-900 bg-zinc-950 py-8 px-4">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
+      <div><strong class="text-zinc-300">ExpressFix Lab</strong> • ul. Woronicza 80, Warszawa • Пн–Сб 09:00–20:00</div>
+      <div>Demo Landing Page by <a href="index.html" class="text-emerald-400 hover:underline">OK GER</a></div>
+    </div>
+  </footer>
+
+  <!-- Instant Callback Modal -->
+  <div id="cbModal" class="hidden fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-zinc-900 border border-zinc-800 rounded-2xl max-w-sm w-full p-6 relative">
+      <button type="button" onclick="closeCallbackModal()" class="absolute top-4 right-4 text-zinc-400 hover:text-white text-sm">✕</button>
+      <h3 data-i18n="mod_h3" class="text-lg font-bold text-white mb-1">Передзвонимо за 30 секунд</h3>
+      <p data-i18n="mod_p" class="text-xs text-zinc-400 mb-4">Залиште номер — майстер підкаже точну ціну та наявність деталі на вашу модель.</p>
+      <form id="modalForm" class="space-y-3">
+        <input id="modalPhone" type="tel" required placeholder="+48 500 000 000"
+          class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-emerald-500" />
+        <button type="submit" data-i18n="mod_btn" class="w-full bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold py-2.5 rounded-xl transition">
+          Чекаю на дзвінок
+        </button>
+        <p id="modStatus" class="hidden text-xs text-emerald-400 text-center"></p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const PRICING = {
+      iphone: {
+        screen:  { orig: [390, 435, "45 хв", "45 min"], oled: [249, 280, "40 хв", "40 min"] },
+        battery: { orig: [189, 210, "30 хв", "30 min"], oled: [139, 155, "30 хв", "30 min"] },
+        port:    { orig: [149, 170, "45 хв", "45 min"], oled: [119, 135, "45 хв", "45 min"] },
+        water:   { orig: [150, 180, "2 год", "2 godz."], oled: [150, 180, "2 год", "2 godz."] }
+      },
+      samsung: {
+        screen:  { orig: [440, 490, "60 хв", "60 min"], oled: [279, 310, "50 хв", "50 min"] },
+        battery: { orig: [169, 190, "40 хв", "40 min"], oled: [129, 145, "40 хв", "40 min"] },
+        port:    { orig: [139, 160, "45 хв", "45 min"], oled: [109, 125, "45 хв", "45 min"] },
+        water:   { orig: [150, 180, "2 год", "2 godz."], oled: [150, 180, "2 год", "2 godz."] }
+      },
+      macbook: {
+        screen:  { orig: [1190, 1320, "3 год", "3 godz."], oled: [890, 990, "3 год", "3 godz."] },
+        battery: { orig: [420, 470, "60 хв", "60 min"], oled: [320, 360, "60 хв", "60 min"] },
+        port:    { orig: [240, 270, "90 хв", "90 min"], oled: [190, 215, "90 хв", "90 min"] },
+        water:   { orig: [250, 300, "4 год", "4 godz."], oled: [250, 300, "4 год", "4 godz."] }
+      }
+    };
+
+    const I18N = {
+      ua: {
+        title: "ExpressFix Lab — Ремонт iPhone, Samsung та MacBook у Варшаві | Demo OK GER",
+        top_status: "Майстерня на Mokotów (ul. Woronicza 80) відкрита • Очікування в черзі: ~15 хв",
+        back_link: "← Портфоліо OK GER",
+        nav_calc: "Калькулятор цін",
+        nav_std: "Стандарти ремонту",
+        nav_rev: "Відгуки (4.9 ★)",
+        nav_call_btn: "Дзвінок за 30 сек",
+        hero_pill: "ремонтів виконуємо при вас за 35–60 хвилин",
+        hero_h1: "Відновимо ваш iPhone, Samsung чи MacBook без черг і переплат",
+        hero_p: "Власний склад дисплеїв та батарей у Варшаві. Працюємо без пароля від вашого пристрою, відновлюємо пиловологозахист та даємо письмову гарантію до 12 місяців.",
+        quick_lbl: "Швидкий вибір популярної моделі:",
+        chip_scr: "Екран",
+        chip_bat: "Батарея",
+        btn_tg_diag: "Порахувати ціну в Telegram-боті",
+        btn_courier: "Викликати кур'єра по Варшаві →",
+        calc_h2: "Розрахунок вартості та часу",
+        calc_sub: "Оберіть бренд, несправність та клас запчастини",
+        i_scr_t: "Дисплей / Скло",
+        i_scr_s: "Тріщини, смуги, не працює сенсор",
+        i_bat_t: "Акумулятор",
+        i_bat_s: "Швидко сідає, здуття, знос <80%",
+        i_prt_t: "Роз'єм / Динамік",
+        i_prt_s: "Не заряджається, погано чути",
+        i_wtr_t: "Після води / Плата",
+        i_wtr_s: "Ультразвукова чистка + діагностика",
+        tier_lbl: "Клас комплектуючих:",
+        tier_orig: "Оригінал / Service Pack (12 міс.)",
+        tier_oled: "Преміум аналог OLED (6 міс.)",
+        badge_online: "-10% онлайн",
+        res_price_lbl: "Вартість зі знижкою 10%:",
+        res_time_lbl: "Час роботи:",
+        w_12: "Гарантія 12 міс.",
+        w_6: "Гарантія 6 міс.",
+        ph_model: "Модель (напр. iPhone 14 Pro)",
+        btn_lock_price: "Зафіксувати ціну та забронювати деталь →",
+        fb_ok: "✅ Заявку зафіксовано! Ціна та деталь закріплені за вашим номером на 48 годин.",
+        fb_demo: "📲 Це демо: ваша заявка щойно прийшла власнику сайту в Telegram.",
+        std_kicker: "Прозорий сервіс",
+        std_h2: "Чому 3 400+ клієнтів у Варшаві обирають ExpressFix",
+        st1_h3: "Ремонт без пароля від телефону",
+        st1_p: "Для заміни екрана, батареї чи роз'єму нам не потрібен код доступу до ваших фото, месенджерів чи банкінгу. Усі дані лишаються недоторканими.",
+        st2_h3: "Відновлення вологозахисту IP68",
+        st2_p: "Після кожного відкриття корпусу встановлюємо нову заводську проклейку дисплея та перевіряємо герметичність під пресом, як із заводу.",
+        st3_h3: "Оплата лише після перевірки",
+        st3_p: "Жодних передоплат за стандартний ремонт. Ви тестуєте True Tone, Face ID, камери та зарядку — і тільки після цього оплачуєте чеком або Faktura VAT 23%.",
+        rev_h2: "Останні відгуки клієнтів у Варшаві",
+        rev_sub: "Рейтинг 4.9 ★ на основі реальних звернень",
+        r1_txt: "«Розбив екран на iPhone 14 Pro біля метро Wierzbno. Заїхав без запису — поставили оригінальний дисплей із перенесенням True Tone за 45 хвилин. Ціна зійшлася копійка в копійку з калькулятором.»",
+        r2_txt: "«Заміна батареї в iPhone 12 зайняла пів години. Телефон знову тримає цілий день, стан 100%, а всередину встановили нову вологозахисну проклейку. Фактура VAT одразу на місці.»",
+        r3_txt: "«Залив кавою MacBook Air M1. В іншому сервісі сказали міняти всю плату за 2500 zł, тут зробили ультразвукову чистку та відновили контролер живлення за 480 zł. Рекомендую!»",
+        faq_h2: "Часті запитання",
+        q1: "Чи зникне повідомлення «Невідома деталь» після заміни батареї або екрана iPhone?",
+        a1: "Так, при виборі класу «Оригінал / Service Pack» ми виконуємо калібрування серійних номерів та перенесення контролера, тому в налаштуваннях відображається 100% ємність і працює True Tone без системних помилок.",
+        q2: "Чи можна передати телефон кур'єром по Варшаві?",
+        a2: "Так, відправляємо кур'єра Bolt / Uber по всій Варшаві (Mokotów, Wola, Śródmieście, Praga) або приймаємо пристрої через Paczkomat InPost із поверненням у день ремонту.",
+        mod_h3: "Передзвонимо за 30 секунд",
+        mod_p: "Залиште номер — майстер підкаже точну ціну та наявність деталі на вашу модель.",
+        mod_btn: "Чекаю на дзвінок",
+        mod_ok: "✅ Номер прийнято! Майстер уже набирає вас."
+      },
+      pl: {
+        title: "ExpressFix Lab — Serwis iPhone, Samsung i MacBook w Warszawie | Demo OK GER",
+        top_status: "Punkt na Mokotowie (ul. Woronicza 80) otwarty • Czas oczekiwania: ~15 min",
+        back_link: "← Portfolio OK GER",
+        nav_calc: "Kalkulator cen",
+        nav_std: "Standardy serwisu",
+        nav_rev: "Opinie (4.9 ★)",
+        nav_call_btn: "Oddzwonimy w 30s",
+        hero_pill: "napraw wykonujemy na miejscu w 35–60 minut",
+        hero_h1: "Naprawimy Twojego iPhone'a, Samsunga lub MacBooka od ręki",
+        hero_p: "Własny magazyn ekranów i baterii w Warszawie. Naprawiamy bez podawania hasła do telefonu, przywracamy uszczelnienie IP68 i dajemy gwarancję do 12 miesięcy.",
+        quick_lbl: "Szybki wybór popularnego modelu:",
+        chip_scr: "Ekran",
+        chip_bat: "Bateria",
+        btn_tg_diag: "Wycena w bocie na Telegramie",
+        btn_courier: "Zamów kuriera na terenie Warszawy →",
+        calc_h2: "Kalkulator ceny i czasu naprawy",
+        calc_sub: "Wybierz markę, usterkę oraz klasę części",
+        i_scr_t: "Wyświetlacz / Szybka",
+        i_scr_s: "Pęknięcia, pasy, brak reakcji dotyku",
+        i_bat_t: "Bateria",
+        i_bat_s: "Szybko się rozładowuje, kondycja <80%",
+        i_prt_t: "Gniazdo / Głośnik",
+        i_prt_s: "Nie ładuje, słabo słychać rozmówcę",
+        i_wtr_t: "Po zalaniu / Płyta",
+        i_wtr_s: "Czyszczenie ultradźwiękowe + diagnoza",
+        tier_lbl: "Klasa podzespołów:",
+        tier_orig: "Oryginał / Service Pack (12 mies.)",
+        tier_oled: "Zamiennik Premium OLED (6 mies.)",
+        badge_online: "-10% online",
+        res_price_lbl: "Cena ze zniżką 10% online:",
+        res_time_lbl: "Czas naprawy:",
+        w_12: "Gwarancja 12 mies.",
+        w_6: "Gwarancja 6 mies.",
+        ph_model: "Model (np. iPhone 14 Pro)",
+        btn_lock_price: "Zablokuj cenę i zarezerwuj część →",
+        fb_ok: "✅ Zgłoszenie przyjęte! Cena oraz część są zarezerwowane na 48 godzin.",
+        fb_demo: "📲 To demo: Twoje zgłoszenie właśnie trafiło do właściciela strony na Telegram.",
+        std_kicker: "Przejrzysty serwis",
+        std_h2: "Dlaczego ponad 3 400 klientów w Warszawie wybiera ExpressFix",
+        st1_h3: "Naprawa bez hasła do telefonu",
+        st1_p: "Do wymiany ekranu, baterii czy gniazda nie potrzebujemy kodu dostępu do Twoich zdjęć czy bankowości. Wszystkie dane pozostają bezpieczne.",
+        st2_h3: "Odtworzenie uszczelnienia IP68",
+        st2_p: "Po każdym otwarciu obudowy zakładamy nową fabryczną uszczelkę wyświetlacza i sprawdzamy szczelność pod prasą serwisową.",
+        st3_h3: "Płatność dopiero po odbiorze",
+        st3_p: "Zero zaliczek przy standardowych naprawach. Testujesz True Tone, Face ID, aparaty oraz ładowanie — płacisz paragonem lub Fakturą VAT 23%.",
+        rev_h2: "Ostatnie opinie kierowców i klientów z Warszawy",
+        rev_sub: "Ocena 4.9 ★ na podstawie zweryfikowanych wizyt",
+        r1_txt: "«Rozbiłem ekran w iPhone 14 Pro przy metrze Wierzbno. Podjechałem bez zapisu — założyli oryginalny wyświetlacz z przeniesieniem True Tone w 45 minut. Cena identyczna jak w kalkulatorze.»",
+        r2_txt: "«Wymiana baterii w iPhone 12 trwała pół godziny. Telefon znów trzyma cały dzień, kondycja 100%, a w środku założyli nową uszczelkę. Konkretna obsługa i faktura VAT od ręki.»",
+        r3_txt: "«Zalałem kawą MacBooka Air M1. W innym miejscu chcieli wymieniać całą płytę za 2500 zł, tutaj zrobili czyszczenie i naprawili układ zasilania za 480 zł. Polecam!»",
+        faq_h2: "Najczęściej zadawane pytania",
+        q1: "Czy po wymianie baterii lub ekranu w iPhone znika komunikat o nieznanej części?",
+        a1: "Tak, przy wyborze klasy «Oryginał / Service Pack» przenosimy układ i kalibrujemy podzespół, dzięki czemu w ustawieniach widać 100% kondycji oraz działa funkcja True Tone.",
+        q2: "Czy mogę wysłać telefon kurierem na terenie Warszawy?",
+        a2: "Tak, zamawiamy kuriera Bolt / Uber w całej Warszawie (Mokotów, Wola, Śródmieście, Praga) lub obsługujemy wysyłki Paczkomatem InPost ze zwrotem tego samego dnia.",
+        mod_h3: "Oddzwonimy w 30 sekund",
+        mod_p: "Zostaw numer — technik potwierdzi dokładną cenę i dostępność części do Twojego modelu.",
+        mod_btn: "Czekam na telefon",
+        mod_ok: "✅ Numer przyjęty! Technik już wybiera Twój numer."
+      }
+    };
+
+    let cfg = { lang: "ua", brand: "iphone", issue: "screen", tier: "orig" };
+
+    function renderCalc() {
+      const [price, old, tUa, tPl] = PRICING[cfg.brand][cfg.issue][cfg.tier];
+      document.getElementById("finalPrice").textContent = `${price} zł`;
+      document.getElementById("oldPrice").textContent = `${old} zł`;
+      document.getElementById("repairTime").textContent = cfg.lang === "ua" ? tUa : tPl;
+      document.getElementById("warrantyBadge").textContent = cfg.tier === "orig" ? I18N[cfg.lang].w_12 : I18N[cfg.lang].w_6;
+
+      ["iphone", "samsung", "macbook"].forEach(b => {
+        document.getElementById(`brand-${b}`).className = b === cfg.brand
+          ? "py-2 text-xs font-bold rounded-lg bg-zinc-800 text-white transition"
+          : "py-2 text-xs font-bold rounded-lg text-zinc-400 hover:text-white transition";
+      });
+
+      ["screen", "battery", "port", "water"].forEach(i => {
+        document.getElementById(`iss-${i}`).className = i === cfg.issue
+          ? "p-3 rounded-xl border-2 border-emerald-500 bg-emerald-500/10 text-left transition"
+          : "p-3 rounded-xl border border-zinc-800 bg-zinc-950/60 hover:border-zinc-700 text-left transition";
+      });
+
+      ["orig", "oled"].forEach(t => {
+        document.getElementById(`tier-${t}`).className = t === cfg.tier
+          ? "py-2 px-3 rounded-lg border border-emerald-500 bg-emerald-500/10 text-xs font-semibold text-white transition"
+          : "py-2 px-3 rounded-lg border border-zinc-800 bg-zinc-950 text-xs font-semibold text-zinc-400 hover:text-white transition";
+      });
+    }
+
+    function selectBrand(b) { cfg.brand = b; renderCalc(); }
+    function selectIssue(i) { cfg.issue = i; renderCalc(); }
+    function selectTier(t)  { cfg.tier = t;  renderCalc(); }
+
+    function quickPreset(b, i, t) {
+      cfg.brand = b; cfg.issue = i; cfg.tier = t;
+      const presets = { iphone: "iPhone 13 Pro", samsung: "Samsung Galaxy S23", macbook: "MacBook Air M1" };
+      document.getElementById("modelInput").value = presets[b] || "";
+      renderCalc();
+    }
+
+    function setLang(newLang) {
+      cfg.lang = newLang;
+      document.documentElement.lang = newLang === "ua" ? "uk" : "pl";
+      document.title = I18N[newLang].title;
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (I18N[newLang][key]) el.textContent = I18N[newLang][key];
+      });
+      document.getElementById("modelInput").placeholder = I18N[newLang].ph_model;
+      document.getElementById("btn-ua").className = newLang === "ua"
+        ? "px-2.5 py-1 rounded-md bg-emerald-500 text-zinc-950 transition"
+        : "px-2.5 py-1 rounded-md text-zinc-400 hover:text-white transition";
+      document.getElementById("btn-pl").className = newLang === "pl"
+        ? "px-2.5 py-1 rounded-md bg-emerald-500 text-zinc-950 transition"
+        : "px-2.5 py-1 rounded-md text-zinc-400 hover:text-white transition";
+      renderCalc();
+    }
+
+
+    const LABELS = {
+      brand: { iphone: "iPhone", samsung: "Samsung / Xiaomi", macbook: "MacBook / Laptop" },
+      issue: { screen: "Дисплей / Скло", battery: "Акумулятор", port: "Роз'єм / Динамік", water: "Після води / Плата" },
+      tier:  { orig: "Оригінал / Service Pack", oled: "Преміум аналог OLED" }
+    };
+
+    // Надсилає заявку з форми в Telegram власника (через /api/lead на сервері портфоліо)
+    function sendLead(payload) {
+      return fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      }).then(r => r.ok).catch(() => false);
+    }
+
+    document.getElementById("repairForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const btn = e.target.querySelector("button[type=submit]");
+      btn.disabled = true;
+      const price = PRICING[cfg.brand][cfg.issue][cfg.tier][0];
+      const sent = await sendLead({
+        source: "Демо-лендінг ExpressFix",
+        service: `${LABELS.brand[cfg.brand]} • ${LABELS.issue[cfg.issue]} • ${LABELS.tier[cfg.tier]} — ${price} zł`,
+        name: "Клієнт із лендінгу",
+        phone: document.getElementById("phoneInput").value.trim(),
+        extra: `Модель: ${document.getElementById("modelInput").value.trim()} • мова: ${cfg.lang.toUpperCase()}`
+      });
+      const fb = document.getElementById("formFeedback");
+      fb.textContent = I18N[cfg.lang].fb_ok + (sent ? " " + I18N[cfg.lang].fb_demo : "");
+      fb.classList.remove("hidden");
+      btn.disabled = false;
+      e.target.reset();
+    });
+
+    function openCallbackModal() { document.getElementById("cbModal").classList.remove("hidden"); }
+    function closeCallbackModal() { document.getElementById("cbModal").classList.add("hidden"); }
+    document.getElementById("cbModal").addEventListener("click", (e) => { if (e.target.id === "cbModal") closeCallbackModal(); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeCallbackModal(); });
+
+    document.getElementById("modalForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      sendLead({
+        source: "Демо-лендінг ExpressFix (зворотний дзвінок)",
+        service: "Передзвонити за 30 секунд",
+        name: "Клієнт із лендінгу",
+        phone: document.getElementById("modalPhone").value.trim()
+      });
+      const st = document.getElementById("modStatus");
+      st.textContent = I18N[cfg.lang].mod_ok;
+      st.classList.remove("hidden");
+      e.target.reset();
+    });
+
+    renderCalc();
+  </script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+# Render Blueprint: один безкоштовний Docker-сервіс (сайт + 3 боти)
+services:
+  - type: web
+    name: okger-portfolio
+    runtime: docker
+    plan: free
+    region: frankfurt
+    healthCheckPath: /healthz
+    autoDeploy: true
+    envVars:
+      - key: PORTFOLIO_BOT_TOKEN
+        sync: false
+      - key: BOOKING_BOT_TOKEN
+        sync: false
+      - key: ESTIMATOR_BOT_TOKEN
+        sync: false
+      - key: OWNER_CHAT_ID
+        sync: false
