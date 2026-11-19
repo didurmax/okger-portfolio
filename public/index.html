@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>OK GER — Сайти під ключ та Telegram-боти для бізнесу</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#2563eb" />
   <meta name="description" content="Розробка лендінгів, сайтів під ключ та Telegram-ботів для автоматизації заявок і запису клієнтів у Варшаві та віддалено. Прозора ціна, швидкий запуск за 2–4 дні." />
   <meta name="robots" content="index, follow" />
   <meta property="og:title" content="OK GER — Сайти під ключ та Telegram-боти" />
@@ -215,6 +219,38 @@
       </div>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5 items-stretch">
+        <!-- Tier 3: Turnkey Telegram Bot (od 500 zł) -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between relative">
+          <div>
+            <div class="flex items-start justify-between gap-2 mb-1">
+              <h3 data-i18n="p3_name" class="font-bold text-white text-lg">Telegram-бот під ключ</h3>
+              <button type="button" onclick="toggleInfo('info-3')" aria-label="Деталі формування ціни"
+                class="w-6 h-6 rounded-full border border-slate-600 hover:border-blue-400 text-slate-300 hover:text-blue-400 text-xs font-serif italic font-bold flex items-center justify-center shrink-0 transition">
+                i
+              </button>
+            </div>
+
+            <div id="info-3" class="hidden mb-4 p-3 rounded-xl bg-slate-950 border border-blue-500/40 text-xs text-slate-300 leading-relaxed">
+              <p data-i18n="p3_info">
+                <strong>500 zł</strong> — базовий бот (меню, прайс, запис/заявка в чат, 1–2 мови). <strong>750–1 300 zł</strong> — інтеграція з Google Таблицями, складний квіз-калькулятор, сповіщення для кількох майстрів.
+              </p>
+            </div>
+
+            <p data-i18n="p3_time" class="text-xs text-slate-400 mb-4">Термін: 1–3 дні • Залежить від логіки</p>
+            <div class="text-3xl font-extrabold text-white mb-5">od 500 zł</div>
+            <ul class="space-y-2.5 text-sm text-slate-300 mb-6">
+              <li data-i18n="p3_f1">✓ Запис на послуги або калькулятор ціни</li>
+              <li data-i18n="p3_f2">✓ Сповіщення про заявки в робочий чат</li>
+              <li data-i18n="p3_f3">✓ Інтеграція з Google Таблицями</li>
+              <li data-i18n="p3_f4">✓ Підтримка двох мов (UA / PL)</li>
+            </ul>
+          </div>
+          <button type="button" onclick="orderService('Bot Telegram pod klucz (od 500 zł)')"
+            class="w-full bg-slate-800 hover:bg-slate-700 text-white text-sm font-semibold py-2.5 rounded-xl transition">
+            <span data-i18n="btn_choose">Обговорити проєкт</span>
+          </button>
+        </div>
+
         <!-- Tier 1: Landing / Business Card (600 zł) -->
         <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between relative">
           <div>
@@ -275,38 +311,6 @@
             </ul>
           </div>
           <button type="button" onclick="orderService('Strona pod klucz (od 850 zł)')"
-            class="w-full bg-slate-800 hover:bg-slate-700 text-white text-sm font-semibold py-2.5 rounded-xl transition">
-            <span data-i18n="btn_choose">Обговорити проєкт</span>
-          </button>
-        </div>
-
-        <!-- Tier 3: Turnkey Telegram Bot (od 500 zł) -->
-        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between relative">
-          <div>
-            <div class="flex items-start justify-between gap-2 mb-1">
-              <h3 data-i18n="p3_name" class="font-bold text-white text-lg">Telegram-бот під ключ</h3>
-              <button type="button" onclick="toggleInfo('info-3')" aria-label="Деталі формування ціни"
-                class="w-6 h-6 rounded-full border border-slate-600 hover:border-blue-400 text-slate-300 hover:text-blue-400 text-xs font-serif italic font-bold flex items-center justify-center shrink-0 transition">
-                i
-              </button>
-            </div>
-
-            <div id="info-3" class="hidden mb-4 p-3 rounded-xl bg-slate-950 border border-blue-500/40 text-xs text-slate-300 leading-relaxed">
-              <p data-i18n="p3_info">
-                <strong>500 zł</strong> — базовий бот (меню, прайс, запис/заявка в чат, 1–2 мови). <strong>750–1 300 zł</strong> — інтеграція з Google Таблицями, складний квіз-калькулятор, сповіщення для кількох майстрів.
-              </p>
-            </div>
-
-            <p data-i18n="p3_time" class="text-xs text-slate-400 mb-4">Термін: 1–3 дні • Залежить від логіки</p>
-            <div class="text-3xl font-extrabold text-white mb-5">od 500 zł</div>
-            <ul class="space-y-2.5 text-sm text-slate-300 mb-6">
-              <li data-i18n="p3_f1">✓ Запис на послуги або калькулятор ціни</li>
-              <li data-i18n="p3_f2">✓ Сповіщення про заявки в робочий чат</li>
-              <li data-i18n="p3_f3">✓ Інтеграція з Google Таблицями</li>
-              <li data-i18n="p3_f4">✓ Підтримка двох мов (UA / PL)</li>
-            </ul>
-          </div>
-          <button type="button" onclick="orderService('Bot Telegram pod klucz (od 500 zł)')"
             class="w-full bg-slate-800 hover:bg-slate-700 text-white text-sm font-semibold py-2.5 rounded-xl transition">
             <span data-i18n="btn_choose">Обговорити проєкт</span>
           </button>
