@@ -87,7 +87,7 @@
             <a href="#tier-bot" class="jump bg-slate-900 border border-slate-800 active:border-blue-500 rounded-2xl p-3.5 flex flex-col gap-1">
               <span class="text-xl" aria-hidden="true">🤖</span>
               <span data-i18n="quick_bot" class="text-sm font-bold text-white leading-tight">Telegram-бот</span>
-              <span class="text-xs font-semibold text-blue-400">od 500 zł</span>
+              <span class="text-xs font-semibold text-blue-400"><span data-from>od</span> 500 zł</span>
             </a>
             <a href="#tier-landing" class="jump bg-slate-900 border border-slate-800 active:border-blue-500 rounded-2xl p-3.5 flex flex-col gap-1">
               <span class="text-xl" aria-hidden="true">🌐</span>
@@ -97,16 +97,16 @@
             <a href="#tier-site" class="jump bg-slate-900 border border-slate-800 active:border-blue-500 rounded-2xl p-3.5 flex flex-col gap-1">
               <span class="text-xl" aria-hidden="true">🗂️</span>
               <span data-i18n="quick_site" class="text-sm font-bold text-white leading-tight">Сайт під ключ</span>
-              <span class="text-xs font-semibold text-blue-400">od 850 zł</span>
+              <span class="text-xs font-semibold text-blue-400"><span data-from>od</span> 850 zł</span>
             </a>
             <a href="#tier-combo" class="jump bg-slate-900 border border-blue-500/60 active:border-blue-400 rounded-2xl p-3.5 flex flex-col gap-1">
               <span class="text-xl" aria-hidden="true">🚀</span>
               <span data-i18n="quick_combo" class="text-sm font-bold text-white leading-tight">Сайт + бот</span>
-              <span class="text-xs font-semibold text-blue-400">od 1 150 zł</span>
+              <span class="text-xs font-semibold text-blue-400"><span data-from>od</span> 1 150 zł</span>
             </a>
             <a href="#tier-miniapp" class="jump col-span-2 bg-slate-900 border border-slate-800 active:border-blue-500 rounded-2xl p-3.5 flex items-center gap-3">
               <span class="text-xl" aria-hidden="true">📱</span>
-              <span class="flex-1"><span data-i18n="quick_miniapp" class="block text-sm font-bold text-white leading-tight">Telegram Mini App</span><span class="text-xs font-semibold text-blue-400">od 1 250 zł</span></span>
+              <span class="flex-1"><span data-i18n="quick_miniapp" class="block text-sm font-bold text-white leading-tight">Telegram Mini App</span><span class="text-xs font-semibold text-blue-400"><span data-from>od</span> 1 250 zł</span></span>
               <span data-i18n="quick_new" class="bg-blue-600 text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full">Новинка</span>
             </a>
           </div>
@@ -316,7 +316,7 @@
             </div>
 
             <p data-i18n="p3_time" class="text-xs text-slate-400 mb-4">Термін: 1–3 дні • Залежить від логіки</p>
-            <div class="text-3xl font-extrabold text-white mb-5">od 500 zł</div>
+            <div class="text-3xl font-extrabold text-white mb-5"><span data-from>od</span> 500 zł</div>
             <ul class="space-y-2.5 text-sm text-slate-300 mb-6">
               <li data-i18n="p3_f1">✓ Запис на послуги або калькулятор ціни</li>
               <li data-i18n="p3_f2">✓ Сповіщення про заявки в робочий чат</li>
@@ -381,7 +381,7 @@
             </div>
 
             <p data-i18n="p2_time" class="text-xs text-slate-400 mb-4">Термін: 3–5 днів • Залежить від обсягу</p>
-            <div class="text-3xl font-extrabold text-white mb-5">od 850 zł</div>
+            <div class="text-3xl font-extrabold text-white mb-5"><span data-from>od</span> 850 zł</div>
             <ul class="space-y-2.5 text-sm text-slate-300 mb-6">
               <li data-i18n="p2_f1">✓ Кілька сторінок або розділів (прайс, FAQ)</li>
               <li data-i18n="p2_f2">✓ Калькулятор вартості чи квіз-заявка</li>
@@ -416,7 +416,7 @@
             </div>
 
             <p data-i18n="p4_time" class="text-xs text-blue-300 mb-4">Термін: 3–5 днів • Одна система</p>
-            <div class="text-3xl font-extrabold text-white mb-5">od 1 150 zł</div>
+            <div class="text-3xl font-extrabold text-white mb-5"><span data-from>od</span> 1 150 zł</div>
             <ul class="space-y-2.5 text-sm text-slate-200 mb-6">
               <li data-i18n="p4_f1">✓ Сайт-візитівка або лендінг під ключ</li>
               <li data-i18n="p4_f2">✓ Бот для запису та автоматизації заявок</li>
@@ -460,7 +460,7 @@
             <li data-i18n="p5_f4">✓ Сповіщення клієнту та власнику в Telegram</li>
           </ul>
           <div class="flex flex-col gap-3 lg:w-56">
-            <div class="text-3xl font-extrabold text-white">od 1 250 zł</div>
+            <div class="text-3xl font-extrabold text-white"><span data-from>od</span> 1 250 zł</div>
             <a data-miniapp="tg" href="https://t.me/okger_portfolio_bot?start=miniapp" target="_blank" rel="noopener"
               class="w-full text-center bg-slate-800 hover:bg-slate-700 text-white text-sm font-semibold py-2.5 rounded-xl transition">
               <span data-i18n="btn_try_miniapp">Спробувати демо ↗</span>
@@ -919,6 +919,9 @@
         }
       });
 
+      document.querySelectorAll("[data-from]").forEach((el) => {
+        el.textContent = { ua: "від", pl: "od", ru: "от" }[lang];
+      });
       ["ua", "pl", "ru"].forEach((l) => {
         document.getElementById("btn-" + l).className = l === lang
           ? "px-2.5 py-1 rounded-md bg-blue-600 text-white transition"
@@ -974,10 +977,12 @@
     })();
 
     initConfig();
+    let initialLang = "ua";
     try {
       const saved = localStorage.getItem("okger_lang");
-      if (saved && saved !== "ua" && I18N[saved]) setLang(saved);
+      if (saved && I18N[saved]) initialLang = saved;
     } catch (e) {}
+    setLang(initialLang);
   </script>
 </body>
 </html>
