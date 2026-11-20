@@ -53,6 +53,7 @@
         <div class="flex items-center bg-slate-900 border border-slate-800 rounded-lg p-0.5 text-xs font-semibold">
           <button type="button" id="btn-ua" onclick="setLang('ua')" class="px-2.5 py-1 rounded-md bg-blue-600 text-white transition">UA</button>
           <button type="button" id="btn-pl" onclick="setLang('pl')" class="px-2.5 py-1 rounded-md text-slate-400 hover:text-white transition">PL</button>
+          <button type="button" id="btn-ru" onclick="setLang('ru')" class="px-2.5 py-1 rounded-md text-slate-400 hover:text-white transition">RU</button>
         </div>
 
         <a id="headerTgBtn" href="https://t.me/exwtk" target="_blank" rel="noopener"
@@ -768,6 +769,117 @@
         cta_tg_btn: `Napisz na Telegramie (@${CONFIG.telegramUsername})`,
         cta_copy_btn: "Skopiuj nick Telegram",
         copied_msg: "✅ Nick skopiowany!"
+      },
+      ru: {
+        nav_demos: "Демо-проекты",
+        nav_pricing: "Услуги и цены",
+        nav_process: "Этапы работы",
+        nav_contact: "Контакты",
+        mnav_pricing: "💰 Услуги и цены",
+        mnav_demos: "▶ Демо",
+        mnav_miniapp: "📱 Mini App",
+        mnav_process: "Этапы",
+        mnav_contact: "Контакты",
+        quick_title: "Что вас интересует?",
+        quick_bot: "Telegram-бот",
+        quick_landing: "Лендинг / визитка",
+        quick_site: "Сайт под ключ",
+        quick_combo: "Сайт + бот",
+        quick_miniapp: "Telegram Mini App",
+        quick_new: "Новинка",
+        quick_all: "Все услуги и цены",
+        hero_badge: "Принимаю заказы • Варшава и удалённо",
+        hero_title: "Сайты под ключ и Telegram-боты, которые приносят бизнесу заявки",
+        hero_subtitle: "Помогаю локальному бизнесу в Варшаве (салонам, СТО, сервисам ремонта и мастерам) автоматизировать запись и перестать терять клиентов в директе. Быстрый запуск без агентских переплат.",
+        hero_cta_primary: "Написать в Telegram →",
+        hero_cta_secondary: "Посмотреть живые демо",
+        stat_1_val: "2–4 дня",
+        stat_1_lbl: "Срок запуска",
+        stat_2_val: "Прозрачная цена",
+        stat_2_lbl: "Фиксируем до старта",
+        stat_3_val: "100% доступов",
+        stat_3_lbl: "Передача кода и аккаунтов",
+        demos_kicker: "Интерактивное портфолио",
+        demos_title: "2 сайта, 3 бота и Mini App — протестируйте прямо сейчас",
+        demos_note: "Каждый проект адаптируется под ваш логотип, услуги, прайс и языки (PL / UA / RU / EN) за 1–3 дня.",
+        demo1_title: "Лендинг с калькулятором цены (сервис ремонта)",
+        demo1_desc: "Быстрая посадочная страница для привлечения клиентов: выбор устройства, мгновенный расчёт стоимости ремонта и отправка заявки в Telegram.",
+        demo2_title: "Информационный сайт компании (автосервис)",
+        demo2_desc: "Полноценный сайт под ключ для локального бизнеса в Варшаве: навигация, блок преимуществ, прайс-лист услуг, интерактивный FAQ и контакты.",
+        demo3_title: "Бот приёма заявок, связанный с сайтом",
+        demo3_desc: "Клиент выбирает пакет в боте и оставляет контакт, а заявки с форм на сайте приходят в тот же чат. Владелец одним касанием ставит статус: «Взято в работу» или «Сделка закрыта».",
+        demo3_try: "Попробуйте: закажите здесь сайт или бота — заявка придёт мне.",
+        demo4_title: "Бот онлайн-записи для салонов и студий",
+        demo4_desc: "Запись в 3 клика на украинском или польском, номер телефона одним касанием. Администратор подтверждает или отменяет запись кнопкой, а клиент сразу получает уведомление.",
+        demo4_try: "Попробуйте: запишитесь на стрижку и посмотрите, что получает клиент.",
+        demo5_title: "Бот-калькулятор стоимости ремонта и услуг",
+        demo5_desc: "Клиент выбирает услугу, указывает модель телефона или авто и сразу видит ориентировочную цену и время. Его контакт сохраняется, а расчёт приходит мастеру в Telegram.",
+        demo5_try: "Попробуйте: посчитайте замену экрана или ТО авто.",
+        demo6_badge: "Новинка",
+        demo6_title: "Mini App для кофейни: меню, корзина и заказ",
+        demo6_desc: "Полноценное приложение внутри Telegram: каталог с выбором размера и молока, корзина, оформление в 2 касания, карта лояльности. Клиент получает подтверждение в чат, владелец — заказ с кнопкой «Готово».",
+        demo6_try: "Попробуйте: закажите капучино и посмотрите, что придёт в чат.",
+        btn_open_miniapp: "Открыть Mini App в Telegram ↗",
+        btn_miniapp_browser: "или посмотреть в браузере",
+        btn_open_bot: "Открыть бота в Telegram ↗",
+        btn_open_demo: "Открыть демо ↗",
+        price_kicker: "Прозрачный прайс",
+        price_title: "Услуги и стоимость",
+        price_subtitle: "Нажмите на значок «i» в углу карточки, чтобы увидеть, из чего складывается цена в зависимости от сложности.",
+        p1_name: "Лендинг / Сайт-визитка",
+        p1_info: "<strong>600 zł</strong> — базовая одностраничная визитка (адаптив, форма заявок в Telegram, базовое SEO). Если добавляется интерактивный калькулятор цен или 2–3 языка (PL/UA/EN) — <strong>750–900 zł</strong>.",
+        p1_time: "Срок: 2–3 дня • Фиксированная цена",
+        p1_f1: "✓ Адаптив под смартфоны и ПК",
+        p1_f2: "✓ Форма заявок прямо в Telegram",
+        p1_f3: "✓ Базовое SEO и быстрая загрузка",
+        p1_f4: "✓ Помощь с доменом и хостингом",
+        p2_name: "Сайт под ключ",
+        p2_info: "<strong>850–1 800 zł</strong> — стоимость зависит от количества страниц/разделов (3–6+), каталогов услуг, галереи работ, мультиязычности и сложных форм расчёта стоимости.",
+        p2_time: "Срок: 3–5 дней • Зависит от объёма",
+        p2_f1: "✓ Несколько страниц или разделов (прайс, FAQ)",
+        p2_f2: "✓ Калькулятор стоимости или квиз-заявка",
+        p2_f3: "✓ Несколько языков (UA / PL / RU) при необходимости",
+        p2_f4: "✓ Полная передача кода и доступов",
+        p3_name: "Telegram-бот под ключ",
+        p3_info: "<strong>500 zł</strong> — базовый бот (меню, прайс, запись/заявка в чат, 1–2 языка). <strong>750–1 300 zł</strong> — интеграция с Google Таблицами, сложный квиз-калькулятор, уведомления для нескольких мастеров.",
+        p3_time: "Срок: 1–3 дня • Зависит от логики",
+        p3_f1: "✓ Запись на услуги или калькулятор цены",
+        p3_f2: "✓ Уведомления о заявках в рабочий чат",
+        p3_f3: "✓ Интеграция с Google Таблицами",
+        p3_f4: "✓ Поддержка нескольких языков",
+        p4_badge: "Комплекс под ключ",
+        p4_name: "Сайт + Telegram-бот",
+        p4_info: "<strong>1 150–2 200 zł</strong> — сайт и бот работают как одна система: заявки с форм сайта приходят в того же бота, где клиенты записываются сами. Плюс 14 дней поддержки после запуска.",
+        p4_time: "Срок: 3–5 дней • Одна система",
+        p4_f1: "✓ Сайт-визитка или лендинг под ключ",
+        p4_f2: "✓ Бот для записи и автоматизации заявок",
+        p4_f3: "✓ Все лиды приходят в один рабочий чат",
+        p4_f4: "✓ 14 дней поддержки после запуска",
+        p5_badge: "Новинка",
+        p5_name: "Telegram Mini App под ключ",
+        p5_info: "<strong>1 250 zł</strong> — каталог или запись, корзина, оформление заказа и уведомления в Telegram. <strong>2 000–3 500 zł</strong> — онлайн-оплата, личный кабинет клиента, программа лояльности, админ-панель или интеграция с вашей CRM.",
+        p5_desc: "Сайт, который открывается прямо в Telegram: клиенту не нужно ничего устанавливать и регистрироваться — имя уже известно, заказ в одно касание.",
+        p5_time: "Срок: 5–10 дней • Зависит от функций",
+        p5_f1: "✓ Каталог, запись или корзина с заказом",
+        p5_f2: "✓ Нативные кнопки, вибрация, светлая и тёмная темы",
+        p5_f3: "✓ Защищённая проверка пользователя на сервере",
+        p5_f4: "✓ Уведомления клиенту и владельцу в Telegram",
+        btn_try_miniapp: "Попробовать демо ↗",
+        btn_choose: "Обсудить проект",
+        proc_title: "Как мы работаем (4 простых шага)",
+        step1_t: "Короткий бриф (10 мин)",
+        step1_d: "Обсуждаем задачу в чате, фиксируем точную цену и дату сдачи без долгих созвонов.",
+        step2_t: "Первый прототип за 24 часа",
+        step2_d: "Показываю рабочий черновик сайта или бота, чтобы вы сразу видели результат вживую.",
+        step3_t: "Правки и подключение",
+        step3_d: "Дорабатываем детали, подключаем уведомления в Telegram, аналитику и домен.",
+        step4_t: "Передача всех доступов",
+        step4_d: "Отдаю весь исходный код, пароли и короткую инструкцию, как пользоваться системой.",
+        cta_title: "Пришлите ссылку на ваш сайт или Instagram — подскажу, где вы теряете заявки",
+        cta_desc: "Сделаю быстрый бесплатный разбор за 10 минут и предложу решение под ваш бюджет. Общаюсь на русском, украинском, польском и английском (RU / UA / PL / EN).",
+        cta_tg_btn: `Написать в Telegram (@${CONFIG.telegramUsername})`,
+        cta_copy_btn: "Скопировать никнейм Telegram",
+        copied_msg: "✅ Никнейм скопирован!"
       }
     };
 
@@ -798,7 +910,7 @@
 
     function setLang(lang) {
       currentLang = lang;
-      document.documentElement.lang = lang === "ua" ? "uk" : "pl";
+      document.documentElement.lang = { ua: "uk", pl: "pl", ru: "ru" }[lang];
 
       document.querySelectorAll("[data-i18n]").forEach((el) => {
         const key = el.getAttribute("data-i18n");
@@ -807,21 +919,20 @@
         }
       });
 
-      const btnUa = document.getElementById("btn-ua");
-      const btnPl = document.getElementById("btn-pl");
-      if (lang === "ua") {
-        btnUa.className = "px-2.5 py-1 rounded-md bg-blue-600 text-white transition";
-        btnPl.className = "px-2.5 py-1 rounded-md text-slate-400 hover:text-white transition";
-      } else {
-        btnPl.className = "px-2.5 py-1 rounded-md bg-blue-600 text-white transition";
-        btnUa.className = "px-2.5 py-1 rounded-md text-slate-400 hover:text-white transition";
-      }
+      ["ua", "pl", "ru"].forEach((l) => {
+        document.getElementById("btn-" + l).className = l === lang
+          ? "px-2.5 py-1 rounded-md bg-blue-600 text-white transition"
+          : "px-2.5 py-1 rounded-md text-slate-400 hover:text-white transition";
+      });
+      try { localStorage.setItem("okger_lang", lang); } catch (e) {}
     }
 
     function orderService(serviceTitle) {
-      const prefix = currentLang === "ua"
-        ? `Привіт! Цікавить замовлення: ${serviceTitle}. Підкажіть по деталях.`
-        : `Cześć! Interesuje mnie realizacja: ${serviceTitle}. Porozmawiajmy o szczegółach.`;
+      const prefix = {
+        ua: `Привіт! Цікавить замовлення: ${serviceTitle}. Підкажіть по деталях.`,
+        pl: `Cześć! Interesuje mnie realizacja: ${serviceTitle}. Porozmawiajmy o szczegółach.`,
+        ru: `Привет! Интересует заказ: ${serviceTitle}. Подскажите по деталям.`
+      }[currentLang];
       window.open(`https://t.me/${CONFIG.telegramUsername}?text=${encodeURIComponent(prefix)}`, "_blank", "noopener");
     }
 
@@ -863,6 +974,10 @@
     })();
 
     initConfig();
+    try {
+      const saved = localStorage.getItem("okger_lang");
+      if (saved && saved !== "ua" && I18N[saved]) setLang(saved);
+    } catch (e) {}
   </script>
 </body>
 </html>
