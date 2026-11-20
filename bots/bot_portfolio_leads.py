@@ -45,7 +45,7 @@ PACKAGES = {
     "company": "🏢 Сайт компанії під ключ (від 850 zł)",
     "bot": "🤖 Telegram-бот для автозапису (від 500 zł)",
     "combo": "🚀 Сайт + Telegram-бот під ключ (від 1150 zł)",
-    "miniapp": "📱 Telegram Mini App (від 1 500 zł)",
+    "miniapp": "📱 Telegram Mini App (від 1 250 zł)",
 }
 
 
