@@ -9,12 +9,17 @@ OK GER — портфоліо в одному процесі:
 """
 
 import asyncio
+import hashlib
+import hmac
 import html
+import json
 import logging
 import os
+import secrets
 import sys
 import time
 from pathlib import Path
+from urllib.parse import parse_qsl
 
 BASE_DIR = Path(__file__).resolve().parent
 sys.path.insert(0, str(BASE_DIR / "bots"))
@@ -113,6 +118,149 @@ async def handle_lead(request: web.Request) -> web.Response:
     return web.json_response({"ok": True})
 
 
+# ==========================================================
+# Telegram Mini App «Ранок»: перевірка initData і прийом замовлень
+# ==========================================================
+
+MINIAPP_DIR = PUBLIC_DIR / "miniapp"
+MINIAPP_MENU = json.loads((MINIAPP_DIR / "menu.json").read_text(encoding="utf-8"))
+MENU_PRODUCTS = {p["id"]: p for p in MINIAPP_MENU["products"]}
+INIT_DATA_MAX_AGE = 24 * 60 * 60
+
+
+def verify_init_data(init_data: str, bot_token: str) -> dict | None:
+    """Перевіряє підпис initData за алгоритмом Telegram (HMAC-SHA256).
+    Повертає розібрані поля, якщо дані справді прийшли з Telegram і не застаріли."""
+    if not init_data or len(init_data) > 4096:
+        return None
+    try:
+        fields = dict(parse_qsl(init_data, keep_blank_values=True, strict_parsing=True))
+    except ValueError:
+        return None
+    received_hash = fields.pop("hash", "")
+    if not received_hash:
+        return None
+    check_string = "\n".join(f"{k}={v}" for k, v in sorted(fields.items()))
+    secret_key = hmac.new(b"WebAppData", bot_token.encode(), hashlib.sha256).digest()
+    calc_hash = hmac.new(secret_key, check_string.encode(), hashlib.sha256).hexdigest()
+    if not hmac.compare_digest(calc_hash, received_hash):
+        return None
+    try:
+        if time.time() - int(fields.get("auth_date", "0")) > INIT_DATA_MAX_AGE:
+            return None
+        fields["user"] = json.loads(fields.get("user", "{}"))
+    except (ValueError, TypeError):
+        return None
+    return fields
+
+
+def price_order(items) -> tuple[list[dict], int] | None:
+    """Рахує замовлення за серверним меню — ціни з клієнта не беремо на віру."""
+    if not isinstance(items, list) or not 0 < len(items) <= 30:
+        return None
+    lines, total = [], 0
+    for raw in items:
+        if not isinstance(raw, dict):
+            return None
+        prod = MENU_PRODUCTS.get(raw.get("id"))
+        qty = raw.get("qty")
+        if not prod or not isinstance(qty, int) or not 1 <= qty <= 20:
+            return None
+        opts = raw.get("opts") if isinstance(raw.get("opts"), dict) else {}
+        unit, labels = prod["price"], []
+        for g in prod["groups"]:
+            options = MINIAPP_MENU["groups"][g]["options"]
+            chosen = next((o for o in options if o["id"] == opts.get(g)), options[0])
+            unit += chosen["d"]
+            if chosen["id"] not in ("none", "no", "cow", "single"):
+                labels.append(chosen["label"].split(" ·")[0] if g == "size" else chosen["label"].lower())
+        lines.append({"name": prod["name"], "opts": ", ".join(labels), "qty": qty, "sum": unit * qty})
+        total += unit * qty
+    return lines, total
+
+
+async def _auto_ready(bot: Bot, user_id: int, num: str) -> None:
+    await asyncio.sleep(60)
+    await bot_portfolio_leads.notify_ready(bot, user_id, num)
+
+
+async def handle_miniapp_order(request: web.Request) -> web.Response:
+    bot: Bot | None = request.app.get("lead_bot")
+    if bot is None:
+        return web.json_response({"ok": False, "error": "Bot is not configured"}, status=503)
+    try:
+        payload = await request.json()
+    except Exception:
+        return web.json_response({"ok": False, "error": "Invalid JSON"}, status=400)
+    if not isinstance(payload, dict):
+        return web.json_response({"ok": False, "error": "Invalid payload"}, status=400)
+
+    auth = verify_init_data(str(payload.get("initData", "")), bot.token)
+    user = auth.get("user") if auth else None
+    if not isinstance(user, dict) or not isinstance(user.get("id"), int):
+        return web.json_response({"ok": False, "error": "Unauthorized"}, status=401)
+    user_id = user["id"]
+    if _rate_limited(f"tg:{user_id}"):
+        return web.json_response({"ok": False, "error": "Too many requests"}, status=429)
+
+    priced = price_order(payload.get("items"))
+    if not priced:
+        return web.json_response({"ok": False, "error": "Invalid items"}, status=400)
+    lines, total = priced
+    pickup = next((o["label"] for o in MINIAPP_MENU["pickup"] if o["id"] == payload.get("pickup")), MINIAPP_MENU["pickup"][0]["label"])
+    pay = next((o["label"] for o in MINIAPP_MENU["pay"] if o["id"] == payload.get("pay")), MINIAPP_MENU["pay"][0]["label"])
+    comment = _clip(payload.get("comment"), 200)
+    num = f"R-{secrets.randbelow(900) + 100}"
+    store = MINIAPP_MENU["store"]
+
+    items_text = "\n".join(
+        f"• {html.escape(l['name'])}" + (f" ({html.escape(l['opts'])})" if l["opts"] else "") + f" × {l['qty']} — {l['sum']} zł"
+        for l in lines
+    )
+    client_text = (
+        f"☕ <b>Замовлення {num} прийнято!</b>\n\n{items_text}\n\n"
+        f"<b>Разом: {total} zł</b>\n"
+        f"🕒 Забрати: {html.escape(pickup.lower())} · {html.escape(store['address'])}\n"
+        f"💳 Оплата: {html.escape(pay.lower())}\n\n"
+        f"Напишемо сюди, щойно все буде готово."
+    )
+    name = _clip(" ".join(filter(None, [user.get("first_name"), user.get("last_name")])) or "Клієнт", 80)
+    uname = f"@{_clip(user['username'], 40)}" if user.get("username") else "без username"
+    owner_text = (
+        f"🛒 <b>НОВЕ ЗАМОВЛЕННЯ {num} — Mini App «{html.escape(store['name'])}» (демо)</b>\n"
+        f"━━━━━━━━━━━━━━━━━━\n"
+        f"👤 {name} ({uname})\n{items_text}\n"
+        f"💰 <b>Разом: {total} zł</b>\n🕒 {html.escape(pickup)} · 💳 {html.escape(pay)}\n"
+        + (f"📝 {comment}\n" if comment else "")
+        + "━━━━━━━━━━━━━━━━━━"
+    )
+
+    try:
+        await bot.send_message(chat_id=user_id, text=client_text)
+    except Exception as exc:  # клієнт міг ще не запускати бота — замовлення все одно приймаємо
+        log.warning("Mini App: не вдалося написати клієнту %s: %s", user_id, exc)
+    if OWNER_CHAT_ID:
+        try:
+            await bot.send_message(
+                chat_id=OWNER_CHAT_ID, text=owner_text, reply_markup=bot_portfolio_leads.miniapp_owner_kb(user_id, num)
+            )
+        except Exception as exc:
+            log.warning("Mini App: не вдалося надіслати замовлення власнику: %s", exc)
+
+    task = asyncio.create_task(_auto_ready(bot, user_id, num))
+    request.app["bg_tasks"].add(task)
+    task.add_done_callback(request.app["bg_tasks"].discard)
+    return web.json_response({"ok": True, "order": {"num": num, "total": total}})
+
+
+async def handle_miniapp_index(_: web.Request) -> web.FileResponse:
+    return web.FileResponse(MINIAPP_DIR / "index.html")
+
+
+async def handle_miniapp_redirect(_: web.Request) -> web.Response:
+    raise web.HTTPMovedPermanently("/miniapp/")
+
+
 async def handle_health(_: web.Request) -> web.Response:
     return web.json_response({"ok": True})
 
@@ -126,14 +274,18 @@ async def headers_middleware(request: web.Request, handler):
     resp = await handler(request)
     resp.headers.setdefault("X-Content-Type-Options", "nosniff")
     resp.headers.setdefault("Referrer-Policy", "strict-origin-when-cross-origin")
-    if request.path.endswith(".html") or request.path == "/":
+    if request.path.endswith((".html", "/", ".js", ".css", ".json")):
         resp.headers.setdefault("Cache-Control", "no-cache")
     return resp
 
 
 def build_web_app() -> web.Application:
     app = web.Application(middlewares=[headers_middleware], client_max_size=64 * 1024)
+    app["bg_tasks"] = set()
     app.router.add_post("/api/lead", handle_lead)
+    app.router.add_post("/api/miniapp/order", handle_miniapp_order)
+    app.router.add_get("/miniapp", handle_miniapp_redirect)
+    app.router.add_get("/miniapp/", handle_miniapp_index)
     app.router.add_get("/healthz", handle_health)
     app.router.add_get("/", handle_index)
     app.router.add_static("/", PUBLIC_DIR, show_index=False)
@@ -159,6 +311,21 @@ async def keep_awake() -> None:
                     log.info("Keep-awake: %s", resp.status)
             except Exception as exc:
                 log.warning("Keep-awake не вдався: %s", exc)
+
+
+async def setup_miniapp_button(bot: Bot) -> None:
+    """Кнопка «Mini App» біля поля вводу в боті портфоліо."""
+    from aiogram.types import MenuButtonWebApp, WebAppInfo
+
+    url = bot_portfolio_leads.miniapp_url()
+    if not url:
+        log.info("Mini App: адреса невідома (немає RENDER_EXTERNAL_URL / MINIAPP_URL) — кнопку не встановлено.")
+        return
+    try:
+        await bot.set_chat_menu_button(menu_button=MenuButtonWebApp(text="Mini App", web_app=WebAppInfo(url=url)))
+        log.info("Mini App: кнопку меню встановлено → %s", url)
+    except Exception as exc:
+        log.warning("Mini App: не вдалося встановити кнопку меню: %s", exc)
 
 
 def make_bot(token: str) -> Bot:
@@ -190,6 +357,7 @@ async def main() -> None:
         dp.include_router(router)
         if name == "portfolio":
             app["lead_bot"] = bot
+            await setup_miniapp_button(bot)
         pollers.append(dp.start_polling(bot, handle_signals=False))
         log.info("Бот '%s' запускається.", name)
 

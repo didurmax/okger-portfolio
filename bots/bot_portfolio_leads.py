@@ -8,7 +8,7 @@ from aiohttp import web
 from aiogram import Bot, Dispatcher, F, Router
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
-from aiogram.filters import CommandStart
+from aiogram.filters import Command, CommandStart
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
 from aiogram.fsm.storage.memory import MemoryStorage
@@ -17,6 +17,7 @@ from aiogram.types import (
     InlineKeyboardButton,
     InlineKeyboardMarkup,
     Message,
+    WebAppInfo,
 )
 
 # ==========================================================
@@ -44,18 +45,59 @@ PACKAGES = {
     "company": "🏢 Сайт компанії під ключ (від 850 zł)",
     "bot": "🤖 Telegram-бот для автозапису (від 500 zł)",
     "combo": "🚀 Сайт + Telegram-бот під ключ (від 1150 zł)",
+    "miniapp": "📱 Telegram Mini App (від 1 500 zł)",
 }
 
 
-def portfolio_kb() -> InlineKeyboardMarkup:
+def miniapp_url() -> str | None:
+    """Адреса демо Mini App. На Render береться з RENDER_EXTERNAL_URL автоматично."""
+    url = os.getenv("MINIAPP_URL")
+    if not url:
+        base = os.getenv("RENDER_EXTERNAL_URL", "").rstrip("/")
+        url = f"{base}/miniapp/" if base else ""
+    return url if url.startswith("https://") else None
+
+
+def miniapp_kb() -> InlineKeyboardMarkup | None:
+    url = miniapp_url()
+    if not url:
+        return None
     return InlineKeyboardMarkup(
-        inline_keyboard=[
-            [InlineKeyboardButton(text=PACKAGES["landing"], callback_data="pkg:landing")],
-            [InlineKeyboardButton(text=PACKAGES["company"], callback_data="pkg:company")],
-            [InlineKeyboardButton(text=PACKAGES["bot"], callback_data="pkg:bot")],
-            [InlineKeyboardButton(text=PACKAGES["combo"], callback_data="pkg:combo")],
-        ]
+        inline_keyboard=[[InlineKeyboardButton(text="☕ Відкрити Mini App", web_app=WebAppInfo(url=url))]]
     )
+
+
+def portfolio_kb() -> InlineKeyboardMarkup:
+    rows = [
+        [InlineKeyboardButton(text=PACKAGES["landing"], callback_data="pkg:landing")],
+        [InlineKeyboardButton(text=PACKAGES["company"], callback_data="pkg:company")],
+        [InlineKeyboardButton(text=PACKAGES["bot"], callback_data="pkg:bot")],
+        [InlineKeyboardButton(text=PACKAGES["combo"], callback_data="pkg:combo")],
+        [InlineKeyboardButton(text=PACKAGES["miniapp"], callback_data="pkg:miniapp")],
+    ]
+    url = miniapp_url()
+    if url:
+        rows.append([InlineKeyboardButton(text="☕ Спробувати демо Mini App", web_app=WebAppInfo(url=url))])
+    return InlineKeyboardMarkup(inline_keyboard=rows)
+
+
+MINIAPP_INTRO = (
+    "☕ <b>Демо Telegram Mini App — кав'ярня «Ранок»</b>\n\n"
+    "Це повноцінний застосунок усередині Telegram: меню з фото, вибір розміру й молока, "
+    "кошик, оформлення замовлення і сповіщення в чат — без встановлення й реєстрації.\n\n"
+    "Натисніть кнопку нижче, оформіть тестове замовлення — і подивіться, що отримує клієнт."
+)
+
+
+@router.message(CommandStart(deep_link=True, magic=F.args == "miniapp"))
+@router.message(Command("app"))
+async def cmd_miniapp(message: Message, state: FSMContext) -> None:
+    await state.clear()
+    kb = miniapp_kb()
+    if kb is None:
+        await message.answer("Демо Mini App тимчасово недоступне. Спробуйте трохи пізніше.")
+        return
+    await message.answer(MINIAPP_INTRO, reply_markup=kb)
 
 
 @router.message(CommandStart())
@@ -123,6 +165,51 @@ def lead_status_kb() -> InlineKeyboardMarkup:
             ]
         ]
     )
+
+
+# ==========================================================
+# Mini App: сповіщення клієнта про готовність замовлення
+# ==========================================================
+
+MINIAPP_READY: set[str] = set()
+
+
+def miniapp_owner_kb(user_id: int, num: str) -> InlineKeyboardMarkup:
+    return InlineKeyboardMarkup(
+        inline_keyboard=[[InlineKeyboardButton(text="✅ Готово — повідомити клієнта", callback_data=f"mo:{user_id}:{num}")]]
+    )
+
+
+async def notify_ready(bot: Bot, user_id: int, num: str) -> bool:
+    """Надсилає клієнту «замовлення готове» рівно один раз."""
+    key = f"{user_id}:{num}"
+    if key in MINIAPP_READY:
+        return False
+    MINIAPP_READY.add(key)
+    try:
+        await bot.send_message(
+            chat_id=user_id,
+            text=f"🔔 <b>Замовлення {html.escape(num)} готове!</b>\nЗаберіть його на касі — смачної кави ☕",
+        )
+    except Exception as exc:
+        logging.warning("Mini App: не вдалося повідомити клієнта %s: %s", user_id, exc)
+    return True
+
+
+@router.callback_query(F.data.startswith("mo:"))
+async def cb_miniapp_ready(callback: CallbackQuery, bot: Bot) -> None:
+    try:
+        _, uid, num = callback.data.split(":", 2)
+        user_id = int(uid)
+    except ValueError:
+        await callback.answer()
+        return
+    sent = await notify_ready(bot, user_id, num)
+    try:
+        await callback.message.edit_text(callback.message.html_text + "\n\n🟢 <b>Клієнта повідомлено</b>")
+    except Exception:
+        pass
+    await callback.answer("Клієнт отримав сповіщення" if sent else "Вже повідомлено")
 
 
 @router.callback_query(F.data.startswith("lead_st:"))

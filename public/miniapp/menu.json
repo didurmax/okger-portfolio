@@ -1,0 +1,87 @@
+{
+  "store": {
+    "name": "Ранок",
+    "tagline": "кава та випічка",
+    "address": "ul. Marszałkowska 10",
+    "hours": "щодня 7:30–20:00",
+    "prep": "7–10 хв"
+  },
+  "categories": [
+    { "id": "coffee", "label": "Кава" },
+    { "id": "pastry", "label": "Випічка" },
+    { "id": "breakfast", "label": "Сніданки" },
+    { "id": "dessert", "label": "Десерти" }
+  ],
+  "groups": {
+    "size": {
+      "label": "Розмір",
+      "options": [
+        { "id": "s", "label": "S · 250 мл", "d": 0 },
+        { "id": "m", "label": "M · 350 мл", "d": 3 },
+        { "id": "l", "label": "L · 450 мл", "d": 5 }
+      ]
+    },
+    "milk": {
+      "label": "Молоко",
+      "options": [
+        { "id": "cow", "label": "Звичайне", "d": 0 },
+        { "id": "oat", "label": "Вівсяне", "d": 3 },
+        { "id": "lf", "label": "Безлактозне", "d": 2 }
+      ]
+    },
+    "syrup": {
+      "label": "Сироп",
+      "options": [
+        { "id": "none", "label": "Без сиропу", "d": 0 },
+        { "id": "caramel", "label": "Солона карамель", "d": 2 },
+        { "id": "vanilla", "label": "Ваніль", "d": 2 },
+        { "id": "lavender", "label": "Лаванда", "d": 3 }
+      ]
+    },
+    "shot": {
+      "label": "Порція",
+      "options": [
+        { "id": "single", "label": "Одинарний", "d": 0 },
+        { "id": "double", "label": "Подвійний", "d": 4 }
+      ]
+    },
+    "warm": {
+      "label": "Подача",
+      "options": [
+        { "id": "no", "label": "Як є", "d": 0 },
+        { "id": "yes", "label": "Підігріти", "d": 0 }
+      ]
+    }
+  },
+  "products": [
+    { "id": "espresso", "cat": "coffee", "name": "Еспресо", "desc": "Бленд Бразилія + Ефіопія, шоколадні ноти й легка кислинка.", "price": 9, "groups": ["shot"], "art": "espresso", "coffee": true },
+    { "id": "americano", "cat": "coffee", "name": "Американо", "desc": "Подвійний еспресо з гарячою водою.", "price": 11, "groups": ["size", "syrup"], "art": "cup", "coffee": true },
+    { "id": "cappuccino", "cat": "coffee", "name": "Капучино", "desc": "Еспресо й оксамитова молочна пінка.", "price": 13, "groups": ["size", "milk", "syrup"], "art": "cappuccino", "coffee": true, "tag": "Хіт" },
+    { "id": "flatwhite", "cat": "coffee", "name": "Флет вайт", "desc": "Більше кави, менше молока — для тих, хто любить міцніше.", "price": 15, "groups": ["milk", "syrup"], "art": "cappuccino", "coffee": true },
+    { "id": "latte", "cat": "coffee", "name": "Лате", "desc": "Ніжний, молочний, ідеальний з сиропом.", "price": 14, "groups": ["size", "milk", "syrup"], "art": "latte", "coffee": true },
+    { "id": "raf", "cat": "coffee", "name": "Раф лавандовий", "desc": "Вершки, ваніль і лаванда. Наш сезонний фаворит.", "price": 18, "groups": ["size", "milk"], "art": "latte", "coffee": true, "tag": "Новинка" },
+
+    { "id": "croissant", "cat": "pastry", "name": "Круасан масляний", "desc": "Французьке масло 82%, хрустка скоринка, пече щоранку.", "price": 9, "groups": ["warm"], "art": "croissant", "tag": "Хіт" },
+    { "id": "pistachio", "cat": "pastry", "name": "Круасан з фісташкою", "desc": "З фісташковим кремом і подрібненими горіхами.", "price": 14, "groups": ["warm"], "art": "croissant" },
+    { "id": "cinnabon", "cat": "pastry", "name": "Синабон", "desc": "Кориця, вершковий сир і карамельна глазур.", "price": 13, "groups": ["warm"], "art": "bun" },
+    { "id": "pie", "cat": "pastry", "name": "Пиріжок з вишнею", "desc": "Як у бабусі: дріжджове тісто й багато вишні.", "price": 8, "groups": ["warm"], "art": "pie" },
+
+    { "id": "syrnyky", "cat": "breakfast", "name": "Сирники зі сметаною", "desc": "Три сирники, сметана й ягідний джем.", "price": 24, "groups": [], "art": "syrnyky", "tag": "Хіт" },
+    { "id": "toast", "cat": "breakfast", "name": "Тост з авокадо", "desc": "Житній хліб, авокадо, яйце пашот і мікрозелень.", "price": 27, "groups": [], "art": "toast" },
+    { "id": "granola", "cat": "breakfast", "name": "Гранола з йогуртом", "desc": "Домашня гранола, грецький йогурт, мед і ягоди.", "price": 19, "groups": [], "art": "granola" },
+
+    { "id": "honeycake", "cat": "dessert", "name": "Медовик", "desc": "Вісім медових коржів і сметанний крем.", "price": 17, "groups": [], "art": "honeycake" },
+    { "id": "napoleon", "cat": "dessert", "name": "Наполеон", "desc": "Листкові коржі й заварний крем з ваніллю.", "price": 16, "groups": [], "art": "napoleon" },
+    { "id": "cheesecake", "cat": "dessert", "name": "Чізкейк Сан-Себастьян", "desc": "Карамелізована скоринка, кремовий центр.", "price": 19, "groups": [], "art": "cheesecake", "tag": "Новинка" }
+  ],
+  "pickup": [
+    { "id": "asap", "label": "Якнайшвидше" },
+    { "id": "15", "label": "Через 15 хв" },
+    { "id": "30", "label": "Через 30 хв" }
+  ],
+  "pay": [
+    { "id": "card", "label": "Карткою на місці" },
+    { "id": "cash", "label": "Готівкою" },
+    { "id": "blik", "label": "BLIK" }
+  ]
+}
